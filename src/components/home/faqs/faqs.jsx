@@ -41,7 +41,7 @@ const SkillsList = () => {
       "Actualmente trabajo con React, Astro, Boostrap y demas librerias y frameworks para el frontend y en el backend trabajo con Node.js, entre otras.",
     ],
     "Mi Experiencia": [
-      "TActualmente no tengo experiencia trabajando en la carrera que estudio.",
+      "Actualmente no tengo experiencia trabajando en la carrera que estudio.",
     ],
     "Mi formacion": [
       "Actualmente me encuentro estudiando ingenieria de sistemas en la Universidad del Bosque.",
