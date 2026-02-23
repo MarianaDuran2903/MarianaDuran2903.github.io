@@ -52,4 +52,26 @@ export const proyectos = [
     codigo: "https://github.com/MarianaDuran2903/HospitalBD/tree/main",
     categoria: "Proyecto",
   },
+  
+    {
+    titulo: "Trabajo Individual - University Champions League",
+    descripcion:
+      "Se diseña un modelo Entidad–Relación (E/R) para gestionar datos relacionados a torneos de futbol.",
+    imagen: imgNote.src,
+    tecnologias: ["Draw io"],
+    demo: "https://docs.google.com/document/d/1G92fC-Yy6XnKH9us9g5k2z7Bqp159VKOhxICgjHVNqk/edit?usp=sharing",
+    codigo: "https://github.com/MarianaDuran2903/HospitalBD/tree/main",
+    categoria: "Proyecto",
+  },
+
+    {
+    titulo: "Trabajo Individual - Plataforma de streaming",
+    descripcion:
+      "Se diseña un modelo Entidad–Relación (E/R) para gestionar el acceso a contenido de los estudiantes.",
+    imagen: imgNote.src,
+    tecnologias: ["Draw io"],
+    demo: "https://docs.google.com/document/d/1F8-6njq6tEhQiq_OoFTTFt1oI80yzKjFNj94wyRBWe4/edit?usp=sharing",
+    codigo: "https://github.com/MarianaDuran2903/HospitalBD/tree/main",
+    categoria: "Proyecto",
+  },
 ];
