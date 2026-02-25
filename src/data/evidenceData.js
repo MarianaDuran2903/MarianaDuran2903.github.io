@@ -11,7 +11,7 @@ import AstroEcommers from "../assets/img-projects/astroEcommers.jpg";
 import CvBuilder from "../assets/img-projects/CvBuilder.png";
 
 
-export const proyectos = [
+export const evidencias = [
   {
     titulo: "Libreria App 4 Integrantes",
     descripcion:
@@ -40,7 +40,7 @@ export const proyectos = [
     tecnologias: ["Github", "css", "Onedrive", "JavaScript" ,"Java"],
     demo: "https://docs.google.com/document/d/19AwbXye3hAnuqUbtmwqrvgdtWicaBBM9WNdKITRW1gk/edit?usp=sharing",
     codigo: "https://github.com/MarianaDuran2903/AerolineaBD/tree/main",
-    categoria: "Proyecto",
+    categoria: "Modelado",
   },
   {
     titulo: "Hospital App",
@@ -50,7 +50,7 @@ export const proyectos = [
     tecnologias: ["Github", "css", "Onedrive", "JavaScript" ,"Java"],
     demo: "https://docs.google.com/document/d/1xl0CHhZpvu4kJj4AFF1jffZ7vPgg8N_lfKZ-jIEB-9g/edit?usp=sharing",
     codigo: "https://github.com/MarianaDuran2903/HospitalBD/tree/main",
-    categoria: "Proyecto",
+    categoria: "Modelado",
   },
   
     {
@@ -61,7 +61,7 @@ export const proyectos = [
     tecnologias: ["Draw io"],
     demo: "https://docs.google.com/document/d/1G92fC-Yy6XnKH9us9g5k2z7Bqp159VKOhxICgjHVNqk/edit?usp=sharing",
     codigo: "",
-    categoria: "Proyecto",
+    categoria: "Modelado",
   },
 
     {
@@ -72,7 +72,7 @@ export const proyectos = [
     tecnologias: ["Draw io"],
     demo: "https://docs.google.com/document/d/1F8-6njq6tEhQiq_OoFTTFt1oI80yzKjFNj94wyRBWe4/edit?usp=sharing",
     codigo: "",
-    categoria: "Proyecto",
+    categoria: "Modelado",
   },
 ];
 

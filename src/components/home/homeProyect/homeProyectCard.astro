@@ -5,8 +5,8 @@ export interface Props {
   titulo: string;
   imagen: string;
   tecnologias: string[];
-  demo: string;
-  codigo: string;
+  demo?: string;
+  codigo?: string;
 }
 
 const { titulo, imagen, tecnologias, demo, codigo } = Astro.props;
@@ -34,24 +34,32 @@ const { titulo, imagen, tecnologias, demo, codigo } = Astro.props;
       }
     </div>
 
-    <div class="mt-auto flex justify-between gap-3">
-      <a
-        href={demo}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="w-full text-center border border-[#7836cf] text-[#7836cf] py-1.5 rounded-md text-sm font-semibold hover:bg-[#7836cf] hover:text-gray-900 transition-colors"
-      >
-        E/R
-      </a>
+    <div class="mt-auto flex gap-3">
+      {
+        demo && demo.trim() !== "" && (
+          <a
+            href={demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full text-center border border-[#7836cf] text-[#7836cf] py-1.5 rounded-md text-sm font-semibold hover:bg-[#7836cf] hover:text-gray-900 transition-colors"
+          >
+            E/R
+          </a>
+        )
+      }
 
-      <a
-        href={codigo}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="w-full text-center border border-[#7836cf] text-[#7836cf] py-1.5 rounded-md text-sm font-semibold hover:bg-[#7836cf] hover:text-gray-900 transition-colors"
-      >
-        Código
-      </a>
+      {
+        codigo && codigo.trim() !== "" && (
+          <a
+            href={codigo}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full text-center border border-[#7836cf] text-[#7836cf] py-1.5 rounded-md text-sm font-semibold hover:bg-[#7836cf] hover:text-gray-900 transition-colors"
+          >
+            Código
+          </a>
+        )
+      }
     </div>
   </div>
 </div>
