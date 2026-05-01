@@ -4,10 +4,12 @@ import ReactEcommerce from "../assets/img-projects/ecommers.jpg";
 import VintageTone from "../assets/img-projects/vintageToneApp.jpg";
 import AstroEcommers from "../assets/img-projects/astroEcommers.jpg";
 
+// Este es el de la pagina de Inicio
+ 
 export const proyectos = [
   
   {
-    titulo: "Libreria App 4 Integrantes",
+    titulo: "Caso Integrador El Bosque Shop - 4 Integrantes",
     descripcion:
       "Es un programa en Java que gestiona una biblioteca, permitiendo registrar usuarios y libros, administrar préstamos y devoluciones, realizar búsquedas de préstamos por título del libro o por usuario, y listar todos los préstamos activos. Además, la aplicación permite crear, actualizar y eliminar usuarios, préstamos y libros. Toda la información se almacena mediante archivos CSV conectados a OneDrive para garantizar la persistencia de los datos.",
     imagen: VintageTone.src,
@@ -17,7 +19,7 @@ export const proyectos = [
     categoria: "Proyecto",
   },
   {
-    titulo: "Libreria App Grupal de Salon ",
+    titulo: "Caso Integrador El Bosque Shop - Salón ",
     descripcion:
       "Es un programa que da continuidad al proyecto anterior, incorporando un módulo de reportes que permite identificar los usuarios que viven en una dirección específica, los libros que fueron prestados en cada mes, los usuarios que tienen préstamos vencidos, aquellos que no han solicitado libros en el último mes y los usuarios que cumplen años en un mes determinado. Toda la información se almacena mediante archivos CSV conectados a OneDrive, garantizando así la persistencia de los datos.",
     imagen: ReactEcommerce.src,
@@ -47,25 +49,4 @@ export const proyectos = [
     categoria: "Proyecto",
   },
 
-    {
-    titulo: "Trabajo Individual - University Champions League",
-    descripcion:
-      "Se diseña un modelo Entidad–Relación (E/R) para gestionar datos relacionados a torneos de futbol.",
-    imagen: imgNote.src,
-    tecnologias: ["Draw io"],
-    demo: "https://docs.google.com/document/d/1G92fC-Yy6XnKH9us9g5k2z7Bqp159VKOhxICgjHVNqk/edit?usp=sharing",
-    codigo: "",
-    categoria: "Proyecto",
-  },
-
-    {
-    titulo: "Trabajo Individual - Plataforma de streaming",
-    descripcion:
-      "Se diseña un modelo Entidad–Relación (E/R) para gestionar el acceso a contenido de los estudiantes.",
-    imagen: imgNote.src,
-    tecnologias: ["Draw io"],
-    demo: "https://docs.google.com/document/d/1F8-6njq6tEhQiq_OoFTTFt1oI80yzKjFNj94wyRBWe4/edit?usp=sharing",
-    codigo: "",
-    categoria: "Proyecto",
-  },
 ];
