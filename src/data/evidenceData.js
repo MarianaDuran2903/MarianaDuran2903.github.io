@@ -109,7 +109,6 @@ export const evidencias = [
     categoria: "Modelado",
   },
 
-  
   {
     titulo: "Taller_Modelado_Avanzado",
     descripcion:
@@ -121,7 +120,7 @@ export const evidencias = [
     categoria: "Normalización",
   },
 
-    {
+  {
     titulo: "Normalizacion-Guía de Ejercicios",
     descripcion:
       "Se realiza el proceso de normalización de bases de datos, partiendo de tablas sin normalizar y aplicando de manera progresiva las reglas de la Primera, Segunda y Tercera Forma Normal. ",
@@ -132,7 +131,7 @@ export const evidencias = [
     categoria: "Normalización",
   },
 
-    {
+  {
     titulo: "Taller_Normalizacion",
     descripcion:
       "Este taller consiste en analizar tablas no normalizadas y transformarlas paso a paso aplicando las formas normales (1FN, 2FN y 3FN). ",
@@ -142,9 +141,8 @@ export const evidencias = [
     codigo: "https://unbosqueeduco-my.sharepoint.com/:x:/g/personal/dsgomezd_unbosque_edu_co/IQC2LqmRtAoKSaCLJ6nJjzb5AZpQOxJeMSn-wEALz-TCH30?rtime=NCUtO6yn3kg",
     categoria: "Normalización",
   },
-
   
-    {
+  {
     titulo: "Taller_Avanzado_Normalizacion_B",
     descripcion:
       "Evaluación práctica orientada a la aplicación de las formas normales (1FN, 2FN y 3FN), mediante la transformación de tablas sin normalizar. Se evalúa la capacidad de identificar dependencias funcionales, eliminar redundancias y estructurar adecuadamente la información.",
@@ -153,6 +151,17 @@ export const evidencias = [
     demo:  "",
     codigo: "https://unbosqueeduco-my.sharepoint.com/:x:/g/personal/dsgomezd_unbosque_edu_co/IQC2LqmRtAoKSaCLJ6nJjzb5AZpQOxJeMSn-wEALz-TCH30?rtime=NCUtO6yn3kg",
     categoria: "Normalización",
+  },
+  
+  {
+    titulo: "Ejercicios de SQL - Human Resources",
+    descripcion:
+      "Repositorio con ejercicios y consultas SQL realizados sobre el esquema HR de Oracle Database Sample Schemas 23.2 utilizando el esquema Human Resources (HR).",
+    imagen: imgNote.src,
+    tecnologias: ["Oracle"],
+    demo:  "",
+    codigo: "/pdf/SCRIPTS SQL.pdf",
+    categoria: "SQL",
   },
     
 ];
