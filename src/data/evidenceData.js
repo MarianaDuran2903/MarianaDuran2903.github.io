@@ -83,7 +83,7 @@ export const evidencias = [
     imagen: imgNote.src,
     tecnologias: ["Draw io"],
     demo:  "/pdf/TALLER MER E-R .pdf",
-    codigo: "",
+    codigo: "https://lucid.app/lucidchart/c1a9933d-5f6b-44c6-9df8-93e2d597919b/edit?viewport_loc=-1866%2C589%2C4588%2C2079%2CtoWAKgI~DGGn&invitationId=inv_a0842f54-ce96-4f8a-bbcd-6ca180266b67",
     categoria: "Modelado",
   },
 
@@ -94,7 +94,7 @@ export const evidencias = [
     imagen: imgNote.src,
     tecnologias: ["Draw io"],
     demo:  "/pdf/Taller_MERE_v3.pdf",
-    codigo: "",
+    codigo: "https://lucid.app/lucidchart/c1a9933d-5f6b-44c6-9df8-93e2d597919b/edit?viewport_loc=-1866%2C589%2C4588%2C2079%2CtoWAKgI~DGGn&invitationId=inv_a0842f54-ce96-4f8a-bbcd-6ca180266b67",
     categoria: "Modelado",
   },
 
@@ -105,7 +105,7 @@ export const evidencias = [
     imagen: imgNote.src,
     tecnologias: ["Draw io"],
     demo:  "/pdf/TALLER MER_V4.pdf",
-    codigo: "",
+    codigo: "https://lucid.app/lucidchart/c1a9933d-5f6b-44c6-9df8-93e2d597919b/edit?viewport_loc=-1866%2C589%2C4588%2C2079%2CtoWAKgI~DGGn&invitationId=inv_a0842f54-ce96-4f8a-bbcd-6ca180266b67",
     categoria: "Modelado",
   },
 
