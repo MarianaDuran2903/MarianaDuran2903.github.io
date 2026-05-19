@@ -21,7 +21,7 @@ export const evidencias = [
     tecnologias: ["Github", "css", "Onedrive", "JavaScript" ,"Java"],
     demo: "",
     codigo: "https://github.com/MarianaDuran2903/BibliotecaBosque/tree/main",
-    categoria: "Proyecto",
+    categoria: "Modelado",
   },
   {
     titulo: "Caso Integrador El Bosque Shop - Salón ",
@@ -31,7 +31,7 @@ export const evidencias = [
     tecnologias: ["Github", "css", "Onedrive", "JavaScript" ,"Java"],
     demo: "",
     codigo: "https://github.com/mmolinasdev/LibraryApp",
-    categoria: "Proyecto",
+    categoria: "Modelado",
   },
   {
     titulo: "Aerolinea App",
@@ -41,7 +41,7 @@ export const evidencias = [
     tecnologias: ["Github", "css", "Onedrive", "JavaScript" ,"Java"],
     demo: "https://docs.google.com/document/d/19AwbXye3hAnuqUbtmwqrvgdtWicaBBM9WNdKITRW1gk/edit?usp=sharing",
     codigo: "https://github.com/MarianaDuran2903/AerolineaBD/tree/main",
-    categoria: "Proyecto",
+    categoria: "Modelado",
   },
   {
     titulo: "Hospital App",
@@ -51,7 +51,7 @@ export const evidencias = [
     tecnologias: ["Github", "css", "Onedrive", "JavaScript" ,"Java"],
     demo: "https://docs.google.com/document/d/1xl0CHhZpvu4kJj4AFF1jffZ7vPgg8N_lfKZ-jIEB-9g/edit?usp=sharing",
     codigo: "https://github.com/MarianaDuran2903/HospitalBD/tree/main",
-    categoria: "Proyecto",
+    categoria: "Modelado",
   },
 
   {
