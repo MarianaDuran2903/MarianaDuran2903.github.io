@@ -163,6 +163,17 @@ export const evidencias = [
     codigo: "/pdf/SCRIPTS SQL.pdf",
     categoria: "SQL",
   },
+
+  {
+    titulo: "Proyecto integrador final del curso",
+    descripcion:
+      "ZIP del proyecto final realizado por el grupo CodeNova al cliente UB-Deporte.",
+    imagen: imgNote.src,
+    tecnologias: ["Github", "SpringBoot", "Excel", "Word" ,"Java"],
+    demo:  "",
+    codigo: "/pdf/PROYECTO_FINAL_BD1 (2).pdf",
+    categoria: "Proyecto",
+  },
     
 ];
 
