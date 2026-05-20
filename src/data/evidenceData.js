@@ -178,10 +178,10 @@ export const evidencias = [
   {
     titulo: "Ejercicios Algebra Realacional",
     descripcion:
-      ".",
+      "A partir de las relaciones dadas, se diseña una expresión del álgebra relacional para cada una de las consultas.",
     imagen: imgNote.src,
     tecnologias: ["Word" ,"RelaX"],
-    demo:  "A partir de las relaciones dadas, se diseña una expresión del álgebra relacional para cada una de las consultas",
+    demo:  "",
     codigo: "/pdf/EJERCICIOS ÁLGEBRA RELACIONAL.pdf",
     categoria: "SQL",
   },
