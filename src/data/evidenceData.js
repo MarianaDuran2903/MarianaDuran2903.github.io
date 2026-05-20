@@ -175,5 +175,15 @@ export const evidencias = [
     categoria: "Proyecto",
   },
     
+  {
+    titulo: "Ejercicios Algebra Realacional",
+    descripcion:
+      ".",
+    imagen: imgNote.src,
+    tecnologias: ["Word" ,"RelaX"],
+    demo:  "A partir de las relaciones dadas, se diseña una expresión del álgebra relacional para cada una de las consultas",
+    codigo: "/pdf/EJERCICIOS ÁLGEBRA RELACIONAL.pdf",
+    categoria: "SQL",
+  },
 ];
 
