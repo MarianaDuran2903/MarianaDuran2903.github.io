@@ -185,5 +185,17 @@ export const evidencias = [
     codigo: "/pdf/EJERCICIOS ÁLGEBRA RELACIONAL.pdf",
     categoria: "SQL",
   },
+
+    {
+    titulo: "Taller1_Explicacion_Clase_SQL_ACID",
+    descripcion:
+      "Entender el problema, la lógica de decisión, la secuencia técnica y los entregables exactos.",
+    imagen: imgNote.src,
+    tecnologias: ["Word" ,"Oracle"],
+    demo:  "",
+    codigo: "/pdf/LAB_PDF_&_SCRIPT (1).zip",
+    categoria: "Proyecto",
+  },
+
 ];
 
