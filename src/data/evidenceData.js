@@ -152,6 +152,17 @@ export const evidencias = [
     codigo: "https://unbosqueeduco-my.sharepoint.com/:x:/g/personal/dsgomezd_unbosque_edu_co/IQC2LqmRtAoKSaCLJ6nJjzb5AZpQOxJeMSn-wEALz-TCH30?rtime=NCUtO6yn3kg",
     categoria: "Normalización",
   },
+
+  {
+    titulo: "Teorema de Unificación de Darwen",
+    descripcion:
+      "Demostración: Si A → B C → D Entonces: A U {C – B} → BD.",
+    imagen: imgNote.src,
+    tecnologias: ["Word"],
+    demo:  "",
+    codigo: "/pdf/Teorema_Darwen.pdf",
+    categoria: "Normalización",
+  },
   
   {
     titulo: "Ejercicios de SQL - Human Resources",
@@ -186,7 +197,7 @@ export const evidencias = [
     categoria: "SQL",
   },
 
-    {
+  {
     titulo: "Taller1_Explicacion_Clase_SQL_ACID",
     descripcion:
       "Entender el problema, la lógica de decisión, la secuencia técnica y los entregables exactos.",
