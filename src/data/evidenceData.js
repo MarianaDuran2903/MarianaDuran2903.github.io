@@ -10,203 +10,51 @@ import VintageTone from "../assets/img-projects/vintageToneApp.jpg";
 import AstroEcommers from "../assets/img-projects/astroEcommers.jpg";
 import CvBuilder from "../assets/img-projects/CvBuilder.png";
 
-// Este es el de la pagina de Evidencias 
+// Este es el de la pagina de Evidencias
 
-export const evidencias = [
-   {
-    titulo: "Caso Integrador El Bosque Shop - 4 Integrantes",
-    descripcion:
-      "Es un programa en Java que gestiona una biblioteca, permitiendo registrar usuarios y libros, administrar préstamos y devoluciones, realizar búsquedas de préstamos por título del libro o por usuario, y listar todos los préstamos activos. Además, la aplicación permite crear, actualizar y eliminar usuarios, préstamos y libros. Toda la información se almacena mediante archivos CSV conectados a OneDrive para garantizar la persistencia de los datos.",
-    imagen: VintageTone.src,
-    tecnologias: ["Github", "css", "Onedrive", "JavaScript" ,"Java"],
-    demo: "",
-    codigo: "https://github.com/MarianaDuran2903/BibliotecaBosque/tree/main",
-    categoria: "Modelado",
-  },
-  {
-    titulo: "Caso Integrador El Bosque Shop - Salón ",
-    descripcion:
-      "Es un programa que da continuidad al proyecto anterior, incorporando un módulo de reportes que permite identificar los usuarios que viven en una dirección específica, los libros que fueron prestados en cada mes, los usuarios que tienen préstamos vencidos, aquellos que no han solicitado libros en el último mes y los usuarios que cumplen años en un mes determinado. Toda la información se almacena mediante archivos CSV conectados a OneDrive, garantizando así la persistencia de los datos.",
-    imagen: ReactEcommerce.src,
-    tecnologias: ["Github", "css", "Onedrive", "JavaScript" ,"Java"],
-    demo: "",
-    codigo: "https://github.com/mmolinasdev/LibraryApp",
-    categoria: "Modelado",
-  },
-  {
-    titulo: "Aerolinea App",
-    descripcion:
-      "Programa que gestiona la aerolínea mediante una base de datos relacional, permitiendo registrar y administrar aviones, pilotos y tripulación. El sistema almacena información de los aviones, como su código o número de cola, tipo de aeronave y base a la que pertenecen y deben regresar tras un determinado número de horas; de los pilotos, incluyendo su código, nombre y horas de vuelo; y de los miembros de la tripulación, con su código, nombre y teléfonos, teniendo en cuenta que tanto pilotos como tripulación regresan a su base asignada al finalizar cada jornada. Además, el sistema registra los vuelos, especificando su número, origen, destino y hora programada.",
-    imagen: AstroEcommers.src,
-    tecnologias: ["Github", "css", "Onedrive", "JavaScript" ,"Java"],
-    demo: "https://docs.google.com/document/d/19AwbXye3hAnuqUbtmwqrvgdtWicaBBM9WNdKITRW1gk/edit?usp=sharing",
-    codigo: "https://github.com/MarianaDuran2903/AerolineaBD/tree/main",
-    categoria: "Modelado",
-  },
-  {
-    titulo: "Hospital App",
-    descripcion:
-      "Se diseña un modelo Entidad–Relación (E/R) para gestionar el área de Urgencias de un hospital, que permita registrar la información de los pacientes, incluyendo su cédula, nombre y apellidos, dirección, teléfonos de contacto, fecha de nacimiento y edad, así como la de los médicos, con su cédula, nombre completo, especialidad y número de celular. El diseño debe contemplar además el registro del proceso de Triage, indicando si un paciente ya fue evaluado, la fecha en que se realizó dicha evaluación y el nivel asignado en el Triage.",
-    imagen: imgNote.src,
-    tecnologias: ["Github", "css", "Onedrive", "JavaScript" ,"Java"],
-    demo: "https://docs.google.com/document/d/1xl0CHhZpvu4kJj4AFF1jffZ7vPgg8N_lfKZ-jIEB-9g/edit?usp=sharing",
-    codigo: "https://github.com/MarianaDuran2903/HospitalBD/tree/main",
-    categoria: "Modelado",
-  },
+const PENDIENTE = "PENDIENTE: completar";
 
-  {
-    titulo: "Trabajo Individual - University Champions League",
-    descripcion:
-      "Se diseña un modelo Entidad–Relación (E/R) para gestionar datos relacionados a torneos de futbol.",
-    imagen: imgNote.src,
-    tecnologias: ["Draw io"],
-    demo: "https://docs.google.com/document/d/1G92fC-Yy6XnKH9us9g5k2z7Bqp159VKOhxICgjHVNqk/edit?usp=sharing",
-    codigo: "",
-    categoria: "Modelado",
-  },
+function slugify(texto) {
+  return texto
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
 
-  {
-    titulo: "Trabajo Individual - Plataforma de streaming",
-    descripcion:
-      "Se diseña un modelo Entidad–Relación (E/R) para gestionar el acceso a contenido de los estudiantes.",
-    imagen: imgNote.src,
-    tecnologias: ["Draw io"],
-    demo: "https://docs.google.com/document/d/1F8-6njq6tEhQiq_OoFTTFt1oI80yzKjFNj94wyRBWe4/edit?usp=sharing",
-    codigo: "",
-    categoria: "Modelado",
-  },
-
-  {
-    titulo: "Taller E-R - Ejercicios resueltos",
-    descripcion:
-      "Se diseña un modelo Entidad–Relación (E/R) para cada ejercicio del taller # 1.",
-    imagen: imgNote.src,
-    tecnologias: ["Draw io"],
-    demo:  "/pdf/TALLER MER E-R .pdf",
-    codigo: "https://lucid.app/lucidchart/c1a9933d-5f6b-44c6-9df8-93e2d597919b/edit?viewport_loc=-1866%2C589%2C4588%2C2079%2CtoWAKgI~DGGn&invitationId=inv_a0842f54-ce96-4f8a-bbcd-6ca180266b67",
-    categoria: "Modelado",
-  },
-
-  {
-    titulo: "Taller MERE_V3 - Ejercicios resueltos",
-    descripcion:
-      "Se diseña un modelo Entidad–Relación (E/R) para cada ejercicio del taller # 2.",
-    imagen: imgNote.src,
-    tecnologias: ["Draw io"],
-    demo:  "/pdf/Taller_MERE_v3.pdf",
-    codigo: "https://lucid.app/lucidchart/c1a9933d-5f6b-44c6-9df8-93e2d597919b/edit?viewport_loc=-1866%2C589%2C4588%2C2079%2CtoWAKgI~DGGn&invitationId=inv_a0842f54-ce96-4f8a-bbcd-6ca180266b67",
-    categoria: "Modelado",
-  },
-
-  {
-    titulo: "Taller MER_V4 - Ejercicios resueltos",
-    descripcion:
-      "Se diseña un modelo Entidad–Relación (E/R) para cada ejercicio del taller # 3.",
-    imagen: imgNote.src,
-    tecnologias: ["Draw io"],
-    demo:  "/pdf/TALLER MER_V4.pdf",
-    codigo: "https://lucid.app/lucidchart/c1a9933d-5f6b-44c6-9df8-93e2d597919b/edit?viewport_loc=-1866%2C589%2C4588%2C2079%2CtoWAKgI~DGGn&invitationId=inv_a0842f54-ce96-4f8a-bbcd-6ca180266b67",
-    categoria: "Modelado",
-  },
-
-  {
-    titulo: "Taller_Modelado_Avanzado",
-    descripcion:
-      "Evaluar dominio real del modelado de datos mediante MER, MER-E y Modelo Relacional.Ejercicios: Residuos Tóxicos, Comidas a Domicilio y Nómina",
-    imagen: imgNote.src,
-    tecnologias: ["Lucid Chart"],
-    demo:  "/pdf/EJERCICIOS TALLER GRUPAL.pdf",
-    codigo: "/pdf/EJERCICIO TODOS.zip",
-    categoria: "Normalización",
-  },
-
-  {
-    titulo: "Normalizacion-Guía de Ejercicios",
-    descripcion:
-      "Se realiza el proceso de normalización de bases de datos, partiendo de tablas sin normalizar y aplicando de manera progresiva las reglas de la Primera, Segunda y Tercera Forma Normal. ",
-    imagen: imgNote.src,
-    tecnologias: ["Microsoft Excel"],
-    demo:  "",
-    codigo: "https://unbosqueeduco-my.sharepoint.com/:x:/g/personal/dsgomezd_unbosque_edu_co/IQC2LqmRtAoKSaCLJ6nJjzb5AZpQOxJeMSn-wEALz-TCH30?rtime=NCUtO6yn3kg",
-    categoria: "Normalización",
-  },
-
-  {
-    titulo: "Taller_Normalizacion",
-    descripcion:
-      "Este taller consiste en analizar tablas no normalizadas y transformarlas paso a paso aplicando las formas normales (1FN, 2FN y 3FN). ",
-    imagen: imgNote.src,
-    tecnologias: ["Microsoft Excel"],
-    demo:  "",
-    codigo: "https://unbosqueeduco-my.sharepoint.com/:x:/g/personal/dsgomezd_unbosque_edu_co/IQC2LqmRtAoKSaCLJ6nJjzb5AZpQOxJeMSn-wEALz-TCH30?rtime=NCUtO6yn3kg",
-    categoria: "Normalización",
-  },
-  
-  {
-    titulo: "Taller_Avanzado_Normalizacion_B",
-    descripcion:
-      "Evaluación práctica orientada a la aplicación de las formas normales (1FN, 2FN y 3FN), mediante la transformación de tablas sin normalizar. Se evalúa la capacidad de identificar dependencias funcionales, eliminar redundancias y estructurar adecuadamente la información.",
-    imagen: imgNote.src,
-    tecnologias: ["Microsoft Excel"],
-    demo:  "",
-    codigo: "https://unbosqueeduco-my.sharepoint.com/:x:/g/personal/dsgomezd_unbosque_edu_co/IQC2LqmRtAoKSaCLJ6nJjzb5AZpQOxJeMSn-wEALz-TCH30?rtime=NCUtO6yn3kg",
-    categoria: "Normalización",
-  },
-
-  {
-    titulo: "Teorema de Unificación de Darwen",
-    descripcion:
-      "Demostración: Si A → B C → D Entonces: A U {C – B} → BD.",
-    imagen: imgNote.src,
-    tecnologias: ["Word"],
-    demo:  "",
-    codigo: "/pdf/Teorema_Darwen.pdf",
-    categoria: "Normalización",
-  },
-  
+const evidenciasBase = [
+ 
   {
     titulo: "Ejercicios de SQL - Human Resources",
+    tema: "Joins, subconsultas y filtrado de texto en SQL (Oracle)",
     descripcion:
       "Repositorio con ejercicios y consultas SQL realizados sobre el esquema HR de Oracle Database Sample Schemas 23.2 utilizando el esquema Human Resources (HR).",
+    descripcionLarga:
+      "Taller práctico de repaso de SQL realizado en clase (Bases de Datos 2) el 05/08/2026, sobre el esquema Human Resources (HR) de Oracle Database Sample Schemas 23.2.\n\nEl ejercicio consistió en explorar las tablas del esquema HR (EMPLOYEES, DEPARTMENTS, LOCATIONS, COUNTRIES, REGIONS, JOBS y JOB_HISTORY) y resolver un conjunto de consultas combinando distintas formas de unir tablas (NATURAL JOIN, INNER JOIN con ON, LEFT JOIN), filtros de texto con LIKE y subconsultas anidadas, comparando varias soluciones válidas para un mismo enunciado.",
+    enunciado:
+      "1. Traer los nombres, apellido, salario, país y continente de los empleados que pertenezcan al continente de Europa (resuelto con NATURAL JOIN y también con JOIN + ON).\n\n2. Traer los nombres de los empleados cuya segunda posición del nombre tenga la letra A (uso de LIKE '_a%').\n\n3. ¿Cuáles son los nombres, apellidos, fechas y cargos que ha tenido cada empleado en la empresa? (resuelto con INNER JOIN, con NATURAL JOIN + subconsultas anidadas, y con LEFT JOIN filtrando por historial de cargos).",
     imagen: imgNote.src,
     tecnologias: ["Oracle"],
     demo:  "",
-    codigo: "/pdf/SCRIPTS SQL.pdf",
+    codigo: "",
+    pdfUrl: "/pdf/Repaso_SQL_Bases_de_Datos_2.pdf",
+    conceptosAplicados: [
+      "NATURAL JOIN entre múltiples tablas relacionadas",
+      "INNER JOIN y LEFT JOIN con condición ON",
+      "Subconsultas anidadas (subqueries en el FROM)",
+      "Filtrado de texto con el operador LIKE y comodines",
+      "Concatenación de columnas (operador || y función CONCAT)",
+      "Ordenamiento de resultados con ORDER BY",
+      "Esquema Human Resources (HR) de Oracle Database Sample Schemas",
+    ],
     categoria: "SQL",
-  },
-
-  {
-    titulo: "Proyecto integrador final del curso",
-    descripcion:
-      "ZIP del proyecto final realizado por el grupo CodeNova al cliente UB-Deporte.",
-    imagen: imgNote.src,
-    tecnologias: ["Github", "SpringBoot", "Excel", "Word" ,"Java"],
-    demo:  "",
-    codigo: "/pdf/PROYECTO_FINAL_BD1 (2).pdf",
-    categoria: "Proyecto",
-  },
-    
-  {
-    titulo: "Ejercicios Algebra Realacional",
-    descripcion:
-      "A partir de las relaciones dadas, se diseña una expresión del álgebra relacional para cada una de las consultas.",
-    imagen: imgNote.src,
-    tecnologias: ["Word" ,"RelaX"],
-    demo:  "",
-    codigo: "/pdf/EJERCICIOS ÁLGEBRA RELACIONAL.pdf",
-    categoria: "SQL",
-  },
-
-  {
-    titulo: "Taller1_Explicacion_Clase_SQL_ACID",
-    descripcion:
-      "Entender el problema, la lógica de decisión, la secuencia técnica y los entregables exactos.",
-    imagen: imgNote.src,
-    tecnologias: ["Word" ,"Oracle"],
-    demo:  "",
-    codigo: "/pdf/LAB_PDF_&_SCRIPT (1).zip",
-    categoria: "Proyecto",
   },
 
 ];
 
+export const evidencias = evidenciasBase.map((evidencia) => ({
+  ...evidencia,
+  slug: slugify(evidencia.titulo),
+}));

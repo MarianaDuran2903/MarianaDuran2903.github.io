@@ -20,7 +20,7 @@ export default function EmailCopy() {
       <h1 className="text-lg font-medium">{email}</h1>
       <button
         onClick={copyToClipboard}
-        className="flex items-center gap-2 cursor-pointer font-bold rounded-md border-none  px-2 py-1 text-sm bg-primary hover:bg-secondary drop-shadow-[2px_2px_0_#0debd8]"
+        className="flex items-center gap-2 cursor-pointer font-bold rounded-md border-none  px-2 py-1 text-sm bg-primary hover:bg-secondary drop-shadow-[2px_2px_0_var(--color-shadow-cyan)]"
       >
         <FaRegCopy className="text-gray-300" />
         {copied ? "Copiado!" : "Copiar"}

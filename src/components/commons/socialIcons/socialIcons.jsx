@@ -11,7 +11,7 @@ const SocialIcons = () => {
         href="https://github.com/MarianaDuran2903"
         target="_blank"
         rel="noopener noreferrer"
-        className="mx-3 text-zinc-400 hover:text-[#69c7c7] drop-shadow-[1px_1px_0_#7836cf]"
+        className="mx-3 text-zinc-400 hover:text-accent drop-shadow-[1px_1px_0_var(--color-primary)]"
         aria-label="Github"
       >
         <FaGithub className="h-7 w-7" />
@@ -21,7 +21,7 @@ const SocialIcons = () => {
         href="https://x.com"
         target="_blank"
         rel="noopener noreferrer"
-        className="mx-3 text-zinc-400 hover:text-[#69c7c7] drop-shadow-[1px_1px_0_#7836cf]"
+        className="mx-3 text-zinc-400 hover:text-accent drop-shadow-[1px_1px_0_var(--color-primary)]"
         aria-label="Twitter"
       >
         <FaXTwitter className="h-7 w-7" />

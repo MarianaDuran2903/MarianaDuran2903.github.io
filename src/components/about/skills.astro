@@ -3,9 +3,9 @@
     <h2
       class="text-4xl font-bold flex flex-col items-center gap-6 text-center whitespace-nowrap text-white md:flex-row md:items-center md:text-start"
     >
-      <span class="drop-shadow-[2px_2px_0_#7836cf]">Tecnologias en Aprendizaje</span>
+      <span class="drop-shadow-[2px_2px_0_var(--color-primary)]">Tecnologias en Aprendizaje</span>
       <span
-        class="hidden h-1.5 grow rounded-lg drop-shadow-[2px_2px_0_#0debd8] bg-[#7836cf] md:block"
+        class="hidden h-1.5 grow rounded-lg drop-shadow-[2px_2px_0_var(--color-shadow-cyan)] bg-primary md:block"
       ></span>
     </h2>
   </div>
@@ -24,13 +24,13 @@
         <div class="relative group">
           <div class="absolute inset-0 -z-10 rounded-lg  blur-3xl opacity-0 transition-opacity group-hover:opacity-100" />
 
-          <div class="flex flex-col items-center bg-gray-900 p-4 drop-shadow-[4px_4px_0_#7836cf] rounded-lg shadow-md transition-transform hover:scale-105">
+          <div class="flex flex-col items-center bg-surface p-4 drop-shadow-[4px_4px_0_var(--color-primary)] rounded-lg shadow-md transition-transform hover:scale-105">
             <img
               src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`}
               alt={skill.name}
               class="w-12 h-12"
             />
-            <p class="mt-2 text-white text-lg font-semibold drop-shadow-[1px_1px_0_#7836cf]">{skill.name}</p>
+            <p class="mt-2 text-white text-lg font-semibold drop-shadow-[1px_1px_0_var(--color-primary)]">{skill.name}</p>
           </div>
         </div>
       ))

@@ -1,41 +1,69 @@
 @import "tailwindcss";
 
+@theme {
+  --color-bg: #2b1c14;
+  --color-surface: #3a2417;
+  --color-hero-bg: #241407;
+  --color-primary: #c2540f;
+  --color-primary-light: #e8a35c;
+  --color-secondary: #4a2c17;
+  --color-accent: #e0b378;
+  --color-accent-hover: #c99456;
+  --color-ink: #2b1608;
+  --color-shadow-primary: #8a3a0d;
+  --color-shadow-primary-alt: #9c4310;
+  --color-shadow-cyan: #f2b134;
+
+  /* Glow decorativo del header del Home, recolorido a la paleta marrón/naranja. */
+  --color-violet-glow: #d9691c;
+  --color-violet-glow-dark: #3a2117;
+  --color-green-glow: #b8752e;
+  --color-mint: #f0c896;
+
+  /* Estos siguen con su valor morado original: no formaban parte de "el fondo
+     del sitio", así que no se tocaron en esta pasada. Aviso pendiente. */
+  --color-secondary-alt: #552496;
+  --color-purple-hover: #6a2cbb;
+  --color-navy-glow: #211355;
+  --color-navy-glow-dark: #12186e;
+}
+
 .primary {
-  color: #7836cf;
+  color: var(--color-primary);
 }
 .secondary {
-  color: #512092;
+  color: var(--color-secondary);
 }
 .bg-primary {
-  background-color: #7836cf;
+  background-color: var(--color-primary);
 }
 .bg-secondary {
-  background-color: #512092;
+  background-color: var(--color-secondary);
 }
 .text-primary {
-  color: #7836cf;
+  color: var(--color-primary);
 }
 
 /* reglas hover (usar estas clases directamente) */
 .hover-text-secondary:hover {
-  color: #7836cf;
+  color: var(--color-primary);
 }
 .hover-bg-secondary:hover {
-  background-color: #7836cf;
+  background-color: var(--color-primary);
 }
 .hover\:bg-secondary:hover {
-  background-color: #512092;
+  background-color: var(--color-secondary);
 }
 .hover\:text-secondary:hover {
-  color: #512092;
+  color: var(--color-secondary);
 }
 
 .text-shadow {
-  text-shadow: 2px 2px 0 #620deb;
+  text-shadow: 2px 2px 0 var(--color-shadow-primary);
 }
 
 .text-shadow-cyan {
-  text-shadow: 2px 2px 0 #0debd8;
+  text-shadow: 2px 2px 0 var(--color-shadow-cyan);
 }
 
 /* estilos del home */
@@ -73,5 +101,5 @@
 }
 
 .text-shadow {
-  text-shadow: 2px 2px 0 #6d0deb;
+  text-shadow: 2px 2px 0 var(--color-shadow-primary-alt);
 }

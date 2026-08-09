@@ -43,7 +43,7 @@ const SkillsList = () => {
     "Mi Experiencia": [
       "Actualmente no tengo experiencia trabajando en la carrera que estudio.",
     ],
-    "Mi formacion": [
+    "Mi formación": [
       "Actualmente me encuentro estudiando ingenieria de sistemas en la Universidad del Bosque.",
     ],
     "¿Cómo trabajo en equipo?": [
@@ -59,21 +59,21 @@ const SkillsList = () => {
     <div className="flex flex-col items-center text-left mx-auto max-w-6xl px-4">
       <div className="site-container mt-10">
         <h2 class="text-4xl font-bold flex flex-col items-center gap-6 text-center whitespace-nowrap text-white md:flex-row md:items-center md:text-end">
-          <span class="hidden h-1.5 grow rounded-lg drop-shadow-[2px_2px_0_#0debd8] bg-[#7836cf] md:block"></span>
-          <span class="drop-shadow-[2px_2px_0_#7836cf]">Mas Sobre Mi</span>
+          <span class="hidden h-1.5 grow rounded-lg drop-shadow-[2px_2px_0_var(--color-shadow-cyan)] bg-primary md:block"></span>
+          <span class="drop-shadow-[2px_2px_0_var(--color-primary)]">Mas Sobre Mi</span>
         </h2>
         <ul className="mt-4 space-y-4 text-lg">
           {Object.entries(skills).map(([category, items]) => (
             <li key={category} className="w-full">
               <div
                 onClick={() => toggleItem(category)}
-                className="bg-gray-900 hover:bg-opacity-80 w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all drop-shadow-[2px_2px_0_#7836cf]"
+                className="bg-surface hover:bg-opacity-80 w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all drop-shadow-[2px_2px_0_var(--color-primary)]"
               >
                 <div className="flex items-center gap-3 p-4">
                   {CategoryIcons[category]}
                   <div className="flex grow items-center justify-between gap-2">
                     <div className="max-w-[200px] min-w-0 overflow-hidden md:max-w-none">
-                      <span className="block truncate text-lg text-white drop-shadow-[1px_1px_0_#7836cf] font-bold">
+                      <span className="block truncate text-lg text-white drop-shadow-[1px_1px_0_var(--color-primary)] font-bold">
                         {category}
                       </span>
                     </div>
@@ -81,7 +81,7 @@ const SkillsList = () => {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="currentColor"
-                      className={`h-6 w-6 shrink-0 transform text-[#6a2cbb] transition-transform ${
+                      className={`h-6 w-6 shrink-0 transform text-purple-hover transition-transform ${
                         openItem === category ? "rotate-180" : ""
                       }`}
                     >

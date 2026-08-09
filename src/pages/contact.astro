@@ -11,7 +11,7 @@ const links = [
 
 <Layout>
   <section
-    class="bg-gray-900 flex min-h-screen flex-col items-center justify-center px-6"
+    class="bg-bg flex min-h-screen flex-col items-center justify-center px-6"
   >
     <div class="mb-2 mt-11">
       <div class="mb-2 mt-11">
@@ -32,7 +32,7 @@ const links = [
               id="circlePathText"
               d="M100,100 m-77,0 a77,77 0 1,1 154,0 a77,77 0 1,1 -154,0"
               fill="none"></path>
-            <text fill="#69c7c7" font-size="18" font-weight="bold">
+            <text class="fill-accent" font-size="18" font-weight="bold">
               <textPath href="#circlePathText" startOffset="0%">
                 ✦ Hola ! ✦ Aqui te dejo mi contacto!
               </textPath>
@@ -52,7 +52,7 @@ const links = [
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="block font-bold w-full rounded-lg bg-primary hover:bg-secondary drop-shadow-[2px_2px_0_#0debd8] px-6 py-3 text-center text-white transition "
+            class="block font-bold w-full rounded-lg bg-primary hover:bg-secondary drop-shadow-[2px_2px_0_var(--color-shadow-cyan)] px-6 py-3 text-center text-white transition "
           >
             {link.label}
           </a>
