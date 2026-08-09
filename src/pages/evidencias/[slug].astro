@@ -1,5 +1,11 @@
 ---
-import { HiArrowLeft, HiArrowTopRightOnSquare } from "react-icons/hi2";
+import {
+  HiArrowLeft,
+  HiArrowTopRightOnSquare,
+  HiDocumentText,
+  HiLightBulb,
+  HiCheckCircle,
+} from "react-icons/hi2";
 import Layout from "../../layouts/Layout.astro";
 import Banner from "../../components/commons/banners/banner.astro";
 import { evidencias } from "../../data/evidenceData.js";
@@ -46,7 +52,7 @@ const recursos = [
     </a>
 
     <!-- (2) Título + tema -->
-    <header class="mt-6 mb-10">
+    <header class="mt-6 mb-10 text-center">
       <h1 class="text-3xl font-extrabold text-white drop-shadow-[2px_2px_0_var(--color-primary)] sm:text-4xl">
         {titulo}
       </h1>
@@ -54,7 +60,7 @@ const recursos = [
 
       {
         tecnologias?.length > 0 && (
-          <div class="mt-4 flex flex-wrap gap-2">
+          <div class="mt-4 flex flex-wrap justify-center gap-2">
             {tecnologias.map((tech) => (
               <span class="rounded-md bg-primary/20 px-2 py-0.5 text-xs font-semibold text-primary-light">
                 {tech}
@@ -65,93 +71,100 @@ const recursos = [
       }
     </header>
 
-    <!-- (3) Descripción del Proyecto -->
-    <section class="mb-10">
-      <h2 class="mb-3 text-2xl font-bold text-white drop-shadow-[1px_1px_0_var(--color-primary)]">
-        Descripción del Proyecto
-      </h2>
-      <p class="whitespace-pre-line text-gray-300">{descripcionLarga}</p>
-    </section>
+    <div class="flex flex-col gap-8">
+      <!-- (3) Descripción del Proyecto -->
+      <section class="rounded-xl bg-surface p-6 shadow-lg drop-shadow-[4px_4px_0_var(--color-primary)] sm:p-8">
+        <h2 class="mb-4 flex items-center gap-2 text-2xl font-bold text-white">
+          <HiDocumentText class="shrink-0 text-primary-light" size={22} />
+          Descripción del Proyecto
+        </h2>
+        <p class="text-justify leading-relaxed whitespace-pre-line text-gray-300">{descripcionLarga}</p>
+      </section>
 
-    <!-- (4) Enunciado -->
-    <section class="mb-10">
-      <h2 class="mb-3 text-2xl font-bold text-white drop-shadow-[1px_1px_0_var(--color-primary)]">
-        Enunciado
-      </h2>
-      <p class="whitespace-pre-line text-gray-300">{enunciado}</p>
-    </section>
+      <!-- (4) Enunciado -->
+      <section class="rounded-xl bg-surface p-6 shadow-lg drop-shadow-[4px_4px_0_var(--color-primary)] sm:p-8">
+        <h2 class="mb-4 flex items-center gap-2 text-2xl font-bold text-white">
+          <HiLightBulb class="shrink-0 text-primary-light" size={22} />
+          Enunciado
+        </h2>
+        <p class="text-justify leading-relaxed whitespace-pre-line text-gray-300">{enunciado}</p>
+      </section>
 
-    <!-- (5) Visor de PDF + descarga/link externo -->
-    <section class="mb-10">
-      <h2 class="mb-3 text-2xl font-bold text-white drop-shadow-[1px_1px_0_var(--color-primary)]">
-        Documento
-      </h2>
+      <!-- (5) Visor de PDF + descarga/link externo -->
+      <section class="rounded-xl bg-surface p-6 shadow-lg drop-shadow-[4px_4px_0_var(--color-primary)] sm:p-8">
+        <h2 class="mb-4 flex items-center gap-2 text-2xl font-bold text-white">
+          <HiDocumentText class="shrink-0 text-primary-light" size={22} />
+          Documento
+        </h2>
 
+        {
+          esPdfEmbebible ? (
+            <iframe
+              src={pdfUrl}
+              title={`Documento de ${titulo}`}
+              class="h-[600px] w-full rounded-lg border border-white/10 bg-white"
+            />
+          ) : (
+            <p class="text-center text-gray-400">
+              {tienePdf
+                ? "Este trabajo no tiene un PDF local embebible; usa el enlace de abajo para consultarlo."
+                : "Aún no hay un documento cargado para este trabajo."}
+            </p>
+          )
+        }
+
+        {
+          tienePdf && (
+            <div class="mt-4 flex justify-center">
+              <a
+                href={pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                download={esPdfEmbebible}
+                class="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-1.5 text-sm font-bold text-ink drop-shadow-[2px_2px_0_var(--color-primary)] transition-all duration-150 hover:bg-accent-hover active:translate-y-0.5 active:drop-shadow-none"
+              >
+                {esPdfEmbebible ? "Descargar PDF" : "Abrir recurso externo"}
+                <HiArrowTopRightOnSquare size={16} />
+              </a>
+            </div>
+          )
+        }
+      </section>
+
+      <!-- (6) Conceptos Aplicados y Aprendidos -->
+      <section class="rounded-xl bg-surface p-6 shadow-lg drop-shadow-[4px_4px_0_var(--color-primary)] sm:p-8">
+        <h2 class="mb-4 flex items-center gap-2 text-2xl font-bold text-white">
+          <HiCheckCircle class="shrink-0 text-primary-light" size={22} />
+          Conceptos Aplicados y Aprendidos
+        </h2>
+        {
+          conceptosAplicados?.length > 0 ? (
+            <ul class="grid gap-2.5 sm:grid-cols-2">
+              {conceptosAplicados.map((concepto) => (
+                <li class="flex items-start gap-2 rounded-lg bg-white/5 px-3 py-2 text-sm text-gray-300">
+                  <HiCheckCircle class="mt-0.5 shrink-0 text-primary" size={16} />
+                  <span>{concepto}</span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p class="text-center text-gray-400">Aún no hay conceptos registrados para este trabajo.</p>
+          )
+        }
+      </section>
+
+      <!-- (7) Para conocer más (opcional) -->
       {
-        esPdfEmbebible ? (
-          <iframe
-            src={pdfUrl}
-            title={`Documento de ${titulo}`}
-            class="h-[600px] w-full rounded-lg border border-white/10 bg-white"
-          />
-        ) : (
-          <p class="text-gray-400">
-            {tienePdf
-              ? "Este trabajo no tiene un PDF local embebible; usa el enlace de abajo para consultarlo."
-              : "Aún no hay un documento cargado para este trabajo."}
-          </p>
-        )
-      }
-
-      {
-        tienePdf && (
-          <a
-            href={pdfUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            download={esPdfEmbebible}
-            class="mt-4 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-1.5 text-sm font-bold text-ink drop-shadow-[2px_2px_0_var(--color-primary)] transition-all duration-150 hover:bg-accent-hover active:translate-y-0.5 active:drop-shadow-none"
-          >
-            {esPdfEmbebible ? "Descargar PDF" : "Abrir recurso externo"}
-            <HiArrowTopRightOnSquare size={16} />
-          </a>
-        )
-      }
-    </section>
-
-    <!-- (6) Conceptos Aplicados y Aprendidos -->
-    <section class="mb-10">
-      <h2 class="mb-3 text-2xl font-bold text-white drop-shadow-[1px_1px_0_var(--color-primary)]">
-        Conceptos Aplicados y Aprendidos
-      </h2>
-      {
-        conceptosAplicados?.length > 0 ? (
-          <ul class="list-disc space-y-1 pl-5 text-gray-300">
-            {conceptosAplicados.map((concepto) => (
-              <li>{concepto}</li>
-            ))}
-          </ul>
-        ) : (
-          <p class="text-gray-400">Aún no hay conceptos registrados para este trabajo.</p>
-        )
-      }
-    </section>
-
-    <!-- (7) Para conocer más (opcional) -->
-    {
-      recursos.length > 0 && (
-        <section class="mb-10">
-          <h2 class="mb-3 text-2xl font-bold text-white drop-shadow-[1px_1px_0_var(--color-primary)]">
-            Para conocer más
-          </h2>
-          <ul class="space-y-2">
-            {recursos.map((recurso) => (
-              <li>
+        recursos.length > 0 && (
+          <section class="rounded-xl bg-surface p-6 shadow-lg drop-shadow-[4px_4px_0_var(--color-primary)] sm:p-8">
+            <h2 class="mb-4 text-2xl font-bold text-white">Para conocer más</h2>
+            <div class="flex flex-wrap gap-3">
+              {recursos.map((recurso) => (
                 <a
                   href={recurso.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="group inline-flex items-center gap-1.5 font-semibold text-primary-light transition-colors hover:text-primary"
+                  class="group inline-flex items-center gap-1.5 rounded-full bg-white/5 px-4 py-2 text-sm font-semibold text-primary-light transition-colors hover:bg-white/10 hover:text-primary"
                 >
                   {recurso.label}
                   <HiArrowTopRightOnSquare
@@ -159,12 +172,12 @@ const recursos = [
                     size={14}
                   />
                 </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )
-    }
+              ))}
+            </div>
+          </section>
+        )
+      }
+    </div>
   </main>
 
   <Banner />
