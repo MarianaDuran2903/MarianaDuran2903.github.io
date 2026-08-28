@@ -121,6 +121,102 @@ const evidenciasBase = [
     categoria: "SQL",
   },
 
+  {
+  titulo: "Repaso de SQL - Bases de Datos 2",
+
+  tema:
+    "Repaso de SQL: operadores, NULL, JOIN, subconsultas, CTE y funciones de ventana",
+
+  descripcion:
+    "Guía ampliada de ejercicios y dudas de SQL realizada para la asignatura Bases de Datos 2 utilizando Oracle Database y el esquema Human Resources (HR).",
+
+  descripcionLarga:
+    "Repaso de SQL realizado para la asignatura Bases de Datos 2, utilizando el esquema Human Resources (HR) de Oracle Database. " +
+    "El documento reúne ejercicios, explicaciones y ejemplos sobre diferentes conceptos fundamentales de SQL, incluyendo operadores de filtrado, manejo de valores NULL, CASE, DECODE, COALESCE, JOIN, funciones de agregación, subconsultas, consultas multicolumna, CTE recursivas, GROUP BY, HAVING y funciones de ventana mediante OVER(). " +
+    "También incluye ejercicios adicionales resueltos y una chuleta final con los conceptos principales para facilitar el repaso.",
+
+  enunciado:
+    "1. Trabajar con operadores de filtrado como BETWEEN, IN y LIKE.\n\n" +
+    "2. Utilizar los comodines % y _ mediante LIKE para realizar búsquedas de texto.\n\n" +
+    "3. Consultar valores NULL utilizando IS NULL e IS NOT NULL.\n\n" +
+    "4. Comprender la lógica de tres valores de SQL y el comportamiento de NULL.\n\n" +
+    "5. Utilizar la tabla DUAL de Oracle para ejecutar expresiones.\n\n" +
+    "6. Clasificar empleados según su salario utilizando CASE.\n\n" +
+    "7. Utilizar DECODE para realizar equivalencias exactas.\n\n" +
+    "8. Utilizar COALESCE para trabajar con valores NULL.\n\n" +
+    "9. Comprender la diferencia entre colocar condiciones en ON y WHERE dentro de un LEFT JOIN.\n\n" +
+    "10. Utilizar COUNT, AVG y SUM y comprender su comportamiento frente a NULL.\n\n" +
+    "11. Resolver una subconsulta correlacionada para obtener la cantidad de compañeros de cada empleado.\n\n" +
+    "12. Utilizar IN junto con una subconsulta y GROUP BY.\n\n" +
+    "13. Realizar consultas multicolumna utilizando IN.\n\n" +
+    "14. Crear una CTE recursiva para recorrer la jerarquía empleado-manager.\n\n" +
+    "15. Utilizar UNION ALL y CYCLE dentro de una CTE recursiva.\n\n" +
+    "16. Utilizar GROUP BY y HAVING para calcular y filtrar grupos.\n\n" +
+    "17. Utilizar OVER() para realizar cálculos de ventana sin eliminar el detalle de las filas.\n\n" +
+    "18. Comparar ROWS y RANGE en funciones de ventana.\n\n" +
+    "19. Utilizar EXISTS para comprobar la existencia de registros.\n\n" +
+    "20. Utilizar SELF JOIN para relacionar empleados con sus managers.\n\n" +
+    "21. Utilizar ROW_NUMBER() para asignar posiciones según el salario.",
+
+  imagen: imgNote.src,
+
+  tecnologias: [
+    "Oracle",
+    "SQL",
+    "Oracle Database",
+    "Human Resources (HR)"
+  ],
+
+  demo: "",
+
+  codigo: "",
+
+  pdfUrl: "/pdf/Repaso3_SQL_BD2_.pdf",
+
+  conceptosAplicados: [
+    "BETWEEN",
+    "IN",
+    "LIKE",
+    "NOT LIKE",
+    "Comodines % y _",
+    "IS NULL",
+    "IS NOT NULL",
+    "NULL y lógica de tres valores",
+    "DUAL",
+    "CASE",
+    "DECODE",
+    "COALESCE",
+    "LEFT JOIN",
+    "ON vs WHERE",
+    "COUNT(*)",
+    "COUNT(columna)",
+    "AVG",
+    "SUM",
+    "Subconsultas correlacionadas",
+    "Subconsultas con IN",
+    "Consultas multicolumna",
+    "GROUP BY",
+    "HAVING",
+    "CTE",
+    "CTE recursiva",
+    "UNION ALL",
+    "CYCLE",
+    "OVER()",
+    "Funciones de ventana",
+    "ROWS",
+    "RANGE",
+    "UNBOUNDED PRECEDING",
+    "CURRENT ROW",
+    "EXISTS",
+    "SELF JOIN",
+    "ROW_NUMBER()",
+    "ORDER BY",
+    "Esquema Human Resources (HR)"
+  ],
+
+  categoria: "SQL",
+},
+
 ];
 
 export const evidencias = evidenciasBase.map((evidencia) => ({
