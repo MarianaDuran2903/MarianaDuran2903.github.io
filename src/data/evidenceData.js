@@ -217,6 +217,77 @@ const evidenciasBase = [
   categoria: "SQL",
 },
 
+{
+  titulo: "Quiz 1 - SQL Avanzado en Oracle",
+
+  tema:
+    "Joins, subconsultas, CTE y funciones analíticas en Oracle",
+
+  descripcion:
+    "Quiz de Bases de Datos 2 enfocado en SQL avanzado en Oracle, trabajando joins, funciones analíticas, CTE recursivas, jerarquías y consultas Top-N.",
+
+  descripcionLarga:
+    "Quiz de Bases de Datos 2 sobre SQL avanzado en Oracle Database. " +
+    "El ejercicio evalúa la construcción, diagnóstico y corrección de consultas utilizando joins, funciones de agregación, funciones analíticas, CTE y jerarquías recursivas. " +
+    "También aborda el manejo de devoluciones mediante OUTER JOIN, acumulados por cliente, clasificación de pedidos, variaciones mensuales, jerarquías de categorías de productos y consultas Top-N por grupo. " +
+    "El quiz requiere resolver problemas de lógica de consultas y considerar el comportamiento específico de Oracle 19c.",
+
+  enunciado:
+    "PREGUNTA 1 — Diagnóstico y reescritura de una consulta.\n\n" +
+    "1. Identificar cuatro defectos presentes en una consulta SQL que busca listar, para cada cliente PREMIUM, sus pedidos de 2025, el valor total del pedido, el acumulado de compra hasta cada pedido, el número de devoluciones excluyendo las de garantía y los tres pedidos de mayor valor por cliente.\n\n" +
+    "2. Explicar qué está mal en cada defecto, por qué afecta el resultado y cómo corregirlo, incluyendo problemas relacionados con funciones analíticas y joins.\n\n" +
+    "3. Reescribir la consulta completa utilizando una CTE mediante WITH, incluyendo correctamente los pedidos que no tengan devoluciones y mostrando num_devoluciones = 0.\n\n" +
+    "4. Analizar el comportamiento de la función analítica utilizada para calcular el acumulado cuando existen pedidos con la misma fecha.\n\n" +
+    "PREGUNTA 2 — Construcción de un informe gerencial.\n\n" +
+    "5. Construir un informe mensual de 2025 agrupado por región de sucursal, mes y categoría raíz del producto.\n\n" +
+    "6. Resolver la jerarquía de categorías para obtener la categoría raíz independientemente de la profundidad de la jerarquía.\n\n" +
+    "7. Calcular la venta neta como el valor vendido menos el valor devuelto.\n\n" +
+    "8. Imputar el valor devuelto al mes correspondiente a la fecha de devolución.\n\n" +
+    "9. Calcular la variación porcentual de la venta neta frente al mes inmediatamente anterior para la misma región y categoría raíz.\n\n" +
+    "10. Obtener el puesto de cada categoría raíz dentro de su región utilizando la venta neta acumulada de todo 2025.\n\n" +
+    "11. Mostrar únicamente las tres categorías raíz con mayor venta neta anual de cada región.\n\n" +
+    "12. Utilizar obligatoriamente un CTE recursivo o una consulta jerárquica, al menos dos funciones analíticas y al menos un OUTER JOIN justificado.\n\n" +
+    "13. Explicar por qué una jerarquía de N niveles no debe resolverse mediante un número fijo de SELF JOIN.\n\n" +
+    "14. Explicar el funcionamiento del miembro ancla y el miembro recursivo de una CTE recursiva, o START WITH y PRIOR en CONNECT BY.\n\n" +
+    "15. Analizar por qué ROWNUM <= 3 no permite obtener correctamente un Top-N por grupo y explicar las alternativas correctas.",
+
+  imagen: imgNote.src,
+
+  tecnologias: [
+    "Oracle",
+    "SQL",
+  ],
+
+  demo: "",
+
+  codigo: "",
+
+  pdfUrl: "/pdf/Quiz_1-Bases_de_Datos2.pdf",
+
+  conceptosAplicados: [
+    "JOIN",
+    "INNER JOIN",
+    "LEFT JOIN",
+    "Funciones de agregación",
+    "SUM",
+    "COUNT",
+    "Funciones analíticas",
+    "OVER()",
+    "PARTITION BY",
+    "ORDER BY",
+    "RANK()",
+    "Acumulados",
+    "CTE",
+    "WITH",
+    "CTE recursiva",
+    "ROWNUM",
+    "EXTRACT",
+    "GROUP BY",
+  ],
+
+  categoria: "SQL",
+},
+
 ];
 
 export const evidencias = evidenciasBase.map((evidencia) => ({
