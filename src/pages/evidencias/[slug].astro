@@ -28,11 +28,16 @@ const {
   demo,
   codigo,
   pdfUrl,
+  pdfUrlSolucion,
   conceptosAplicados,
 } = evidencia;
 
-const tienePdf = Boolean(pdfUrl && pdfUrl.trim() !== "");
-const esPdfEmbebible = tienePdf && pdfUrl.toLowerCase().endsWith(".pdf");
+const documentos = [
+  { label: "Enunciado", url: pdfUrl },
+  { label: "Solución", url: pdfUrlSolucion },
+]
+  .filter((doc) => doc.url && doc.url.trim() !== "")
+  .map((doc) => ({ ...doc, esPdf: doc.url.toLowerCase().endsWith(".pdf") }));
 
 const recursos = [
   { url: demo, label: "Documento relacionado" },
@@ -94,38 +99,48 @@ const recursos = [
       <section class="rounded-xl bg-surface p-6 shadow-lg drop-shadow-[4px_4px_0_var(--color-primary)] sm:p-8">
         <h2 class="mb-4 flex items-center gap-2 text-2xl font-bold text-white">
           <HiDocumentText class="shrink-0 text-primary-light" size={22} />
-          Documento
+          {documentos.length > 1 ? "Documentos" : "Documento"}
         </h2>
 
         {
-          esPdfEmbebible ? (
-            <iframe
-              src={pdfUrl}
-              title={`Documento de ${titulo}`}
-              class="h-[600px] w-full rounded-lg border border-white/10 bg-white"
-            />
+          documentos.length === 0 ? (
+            <p class="text-center text-gray-400">Aún no hay un documento cargado para este trabajo.</p>
           ) : (
-            <p class="text-center text-gray-400">
-              {tienePdf
-                ? "Este trabajo no tiene un PDF local embebible; usa el enlace de abajo para consultarlo."
-                : "Aún no hay un documento cargado para este trabajo."}
-            </p>
-          )
-        }
+            <div class="flex flex-col gap-8">
+              {documentos.map((doc) => (
+                <div>
+                  {documentos.length > 1 && (
+                    <h3 class="mb-2 text-sm font-semibold tracking-wide text-primary-light uppercase">
+                      {doc.label}
+                    </h3>
+                  )}
 
-        {
-          tienePdf && (
-            <div class="mt-4 flex justify-center">
-              <a
-                href={pdfUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                download={esPdfEmbebible}
-                class="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-1.5 text-sm font-bold text-ink drop-shadow-[2px_2px_0_var(--color-primary)] transition-all duration-150 hover:bg-accent-hover active:translate-y-0.5 active:drop-shadow-none"
-              >
-                {esPdfEmbebible ? "Descargar PDF" : "Abrir recurso externo"}
-                <HiArrowTopRightOnSquare size={16} />
-              </a>
+                  {doc.esPdf ? (
+                    <iframe
+                      src={doc.url}
+                      title={`${doc.label} de ${titulo}`}
+                      class="h-[600px] w-full rounded-lg border border-white/10 bg-white"
+                    />
+                  ) : (
+                    <p class="text-center text-gray-400">
+                      Este trabajo no tiene un PDF local embebible; usa el enlace de abajo para consultarlo.
+                    </p>
+                  )}
+
+                  <div class="mt-4 flex justify-center">
+                    <a
+                      href={doc.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      download={doc.esPdf}
+                      class="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-1.5 text-sm font-bold text-ink drop-shadow-[2px_2px_0_var(--color-primary)] transition-all duration-150 hover:bg-accent-hover active:translate-y-0.5 active:drop-shadow-none"
+                    >
+                      {doc.esPdf ? `Descargar ${documentos.length > 1 ? doc.label : "PDF"}` : "Abrir recurso externo"}
+                      <HiArrowTopRightOnSquare size={16} />
+                    </a>
+                  </div>
+                </div>
+              ))}
             </div>
           )
         }
