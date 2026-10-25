@@ -230,7 +230,7 @@ const evidenciasBase = [
     "Quiz de Bases de Datos 2 sobre SQL avanzado en Oracle Database. " +
     "El ejercicio evalúa la construcción, diagnóstico y corrección de consultas utilizando joins, funciones de agregación, funciones analíticas, CTE y jerarquías recursivas. " +
     "También aborda el manejo de devoluciones mediante OUTER JOIN, acumulados por cliente, clasificación de pedidos, variaciones mensuales, jerarquías de categorías de productos y consultas Top-N por grupo. " +
-    "El quiz requiere resolver problemas de lógica de consultas y considerar el comportamiento específico de Oracle 19c.",
+    "El quiz requiere resolver problemas de lógica de consultas y considerar el comportamiento específico de Oracle.",
 
   enunciado:
     "PREGUNTA 1 — Diagnóstico y reescritura de una consulta.\n\n" +
@@ -297,10 +297,10 @@ const evidenciasBase = [
     "Planes de ejecución, índices y estadísticas del optimizador en Oracle",
 
   descripcion:
-    "Taller de Bases de Datos sobre optimización básica de consultas en Oracle 19c: cómo leer un plan de ejecución, cuándo un índice ayuda o estorba, y qué patrones de escritura de SQL lo anulan sin darse cuenta.",
+    "Taller de Bases de Datos sobre optimización básica de consultas en Oracle : cómo leer un plan de ejecución, cuándo un índice ayuda o estorba, y qué patrones de escritura de SQL lo anulan sin darse cuenta.",
 
   descripcionLarga:
-    "Clase práctica de dos horas sobre optimización básica de consultas en Oracle 19c, trabajada sobre una tabla de 300.000 filas para que los planes de ejecución mostrados fueran reales y no teóricos. " +
+    "Clase práctica de dos horas sobre optimización básica de consultas en Oracle, trabajada sobre una tabla de 300.000 filas para que los planes de ejecución mostrados fueran reales y no teóricos. " +
     "La sesión parte de una idea central: en SQL se declara QUÉ resultado se quiere, y es el optimizador de Oracle quien decide CÓMO obtenerlo, calculando un costo estimado para varios caminos posibles y quedándose con el más barato. " +
     "A partir de ahí se explica cómo leer un plan de ejecución con EXPLAIN PLAN y DBMS_XPLAN.DISPLAY (columnas Operation, Rows y Cost), la diferencia entre un TABLE ACCESS FULL y un acceso por índice (INDEX RANGE SCAN / INDEX UNIQUE SCAN + TABLE ACCESS BY INDEX ROWID), y por qué un índice no es una mejora automática: ayuda cuando el filtro descarta muchas filas y estorba (o el optimizador lo ignora) cuando devuelve buena parte de la tabla. " +
     "La segunda mitad de la clase se enfoca en las formas más comunes de anular un índice sin darse cuenta: aplicar una función sobre la columna filtrada (UPPER, TRUNC sobre fechas), comparar columnas de tipos distintos generando una conversión implícita (TO_NUMBER), y usar un comodín LIKE al inicio del patrón. " +
@@ -356,13 +356,13 @@ const evidenciasBase = [
   titulo: "Tipos de índices en Oracle",
 
   tema:
-    "B-tree, bitmap, funcionales, particionados y gestión de índices en Oracle 19c",
+    "B-tree, bitmap, funcionales, particionados y gestión de índices en Oracle",
 
   descripcion:
     "Clase de Bases de Datos 2 sobre los distintos tipos de índices que ofrece Oracle: cuál usar, sobre qué columnas, y sobre todo cuándo NO crear uno, con demostraciones sobre un esquema de práctica de 500.000 filas.",
 
   descripcionLarga:
-    "Clase práctica de dos horas sobre los tipos de índices en Oracle 19c, organizada como un recorrido desde el índice más común (B-tree) hasta las variantes más especializadas, siempre bajo la misma pregunta: no cuál índice se puede crear, sino cuándo conviene crearlo. " +
+    "Clase práctica de dos horas sobre los tipos de índices en Oracle, organizada como un recorrido desde el índice más común (B-tree) hasta las variantes más especializadas, siempre bajo la misma pregunta: no cuál índice se puede crear, sino cuándo conviene crearlo. " +
     "Se parte del trato que implica todo índice: acelera la búsqueda de unas pocas filas, pero siempre cuesta espacio en disco y mantenimiento en cada INSERT, UPDATE y DELETE de esa columna, además de sumar un plan más que el optimizador debe evaluar. " +
     "La sesión cubre el B-tree como estructura por defecto (árbol balanceado de altura constante, con hojas encadenadas que sirven para igualdad, rangos y ORDER BY) y sus variantes: único frente a no único, compuesto o concatenado (con la regla del prefijo izquierdo), y de cobertura (cuando el índice contiene todas las columnas pedidas y el motor no toca la tabla). " +
     "Continúa con el índice bitmap: cómo guarda un mapa de bits por cada valor distinto de la columna, por qué resuelve bien columnas de baja cardinalidad combinando varios filtros con operaciones binarias (AND/OR entre mapas), por qué es una mala idea en tablas OLTP con escritura concurrente (bloquea por fragmento del mapa, no por fila), y qué es un bitmap join index. " +
@@ -590,6 +590,351 @@ const evidenciasBase = [
 
   categoria: "SQL",
 },
+
+{
+  titulo: "Sentencias de Control en PL/SQL - Oracle",
+
+  tema:
+    "Módulo 1 de 4: condicionales (IF, CASE), bucles (LOOP, WHILE, FOR, FOR sobre cursor), control secuencial (GOTO, NULL) y procesamiento masivo en PL/SQL",
+
+  descripcion:
+    "Script de práctica independiente para el estudio y aplicación de sentencias de control, bloques anónimos, condicionales y optimización de bucles en Oracle Database.",
+
+  descripcionLarga:
+    "Módulo práctico sobre sentencias de control en PL/SQL desarrollado para la asignatura Bases de Datos.\nEl script implementa un esquema de práctica propio con tablas de trabajo (CTRL_ESTUDIANTE y CTRL_NOTA) y aborda de forma progresiva:\n1. Bloques mínimos y salida por pantalla con DBMS_OUTPUT.\n2. Estructuras condicionales (IF, IF-THEN-ELSE, IF-THEN-ELSIF y manejo de valores NULL).\n3. Sentencias y expresiones CASE (simples y buscadas), incluyendo el manejo de la excepción CASE_NOT_FOUND.\n4. Bucles y estructuras iterativas: LOOP básico con etiquetas, WHILE, y FOR numérico con REVERSE.\n5. Recorrido de cursores mediante bucles FOR, sentencias de control de flujo (CONTINUE, EXIT, GOTO) y la instrucción NULL.\n6. Comparación de rendimiento entre procesamiento fila a fila (UPDATE individual) y procesamiento masivo (BULK COLLECT y FORALL).",
+  enunciado:
+    "1. Paso 0 al 1: Preparación del esquema de práctica y bloques mínimos.\n\n2. Paso 2 al 6: Estructuras condicionales (IF, CASE) y captura de la excepción CASE_NOT_FOUND.\n\n3. Paso 7 al 12: Bucles iterativos (LOOP, WHILE, FOR) y control de flujo con CONTINUE y EXIT.\n\n4. Paso 13 al 14: Procesamiento masivo con BULK COLLECT y FORALL frente al rendimiento fila a fila.\n\n5. Ejercicios propuestos: Prácticas de clasificación, notas faltantes, cuotas y tablas de multiplicar.",
+  imagen: imgNote.src,
+
+  tecnologias: [
+    "Oracle",
+    "PL/SQL",
+  ],
+
+  demo: "",
+
+  codigo: "/pdf/01_control_plsql19c.sql",
+
+  pdfUrl: "/pdf/01_Sentencias_de_control_PLSQL19c.pdf",
+
+conceptosAplicados: [
+    "Se aprendió que en un bloque PL/SQL `BEGIN` y `END` son obligatorios (mientras que `DECLARE` es opcional), y que las instrucciones solo funcionan dentro de la sección de ejecución.",
+
+    "Se aprendió a usar los tipos de `IF` (`THEN`, `THEN ELSE`, `THEN ELSIF`) escribiendo `ELSIF` sin 'e' intermedia y con un solo cierre `END IF`.",
+
+    "Se aprendió que las condiciones pueden ser `TRUE`, `FALSE` o `NULL`, por lo que para buscar valores vacíos siempre se debe usar `IS NULL` en lugar de `= NULL`.",
+
+    "Se aprendió que el `CASE` simple compara por igualdad (falla con `NULL`) y el `CASE` buscado evalúa condiciones independientes, permitiendo usar `IS NULL`.",
+
+    "Se aprendió que el bucle `LOOP` básico corre al menos una vez porque la condición se revisa al final, a diferencia de `WHILE`, que puede no ejecutarse nunca si la condición de entrada es falsa.",
+
+    "Se aprendió que el contador de un bucle `FOR` numérico es de solo lectura y solo existe dentro de él, por lo que modificarlo genera un error de compilación.",
+    "Se aprendió que el bucle `FOR` sobre cursor automatiza todo el proceso (declarar, abrir, leer y cerrar), por lo que es el más utilizado.",
+
+    "Se aprendió a controlar bucles anidados usando `EXIT` y `CONTINUE` acompañados de `WHEN` y etiquetas, evitando usar tantos `IF`.",
+
+    "Se aprendió que usar `BULK COLLECT` y `FORALL` agrupa las operaciones de datos en un solo lote, evitando la lentitud de hacer un SQL por cada vuelta.",
+
+    "Se aprendió que el uso de `GOTO` no es recomendado y que `WHEN OTHERS THEN NULL` es una mala práctica porque oculta los errores sin mostrar advertencias.",
+  ],
+
+  categoria: "PL/SQL Scripts",
+},
+
+{
+  titulo: "Funciones Almacenadas en PL/SQL - Oracle",
+
+  tema:
+    "Módulo 2 de 4: CREATE FUNCTION, parámetros e invocación desde SQL, DETERMINISTIC, RESULT_CACHE, PRAGMA UDF, excepciones, empaquetado y diagnóstico con el diccionario de datos",
+
+  descripcion:
+    "Módulo práctico sobre funciones almacenadas en PL/SQL (Oracle Database). Cubre la creación de funciones permanentes, su invocación desde consultas SQL, el uso de optimizaciones como DETERMINISTIC y RESULT_CACHE, el manejo de excepciones y el diagnóstico mediante el diccionario de datos.",
+  descripcionLarga:
+    "Segundo módulo (de cuatro) de PL/SQL dentro de la asignatura de Bases de Datos." +
+    "Explica la diferencia entre bloque anónimo, función y procedimiento (si el nombre natural de la unidad es un sustantivo suele ser función; si es un verbo de acción, procedimiento), la anatomía exacta de CREATE FUNCTION (el tipo de retorno en la firma va sin precisión ni escala, mientras que las variables internas sí la llevan), y las reglas de los parámetros: solo modo IN si la función debe poder invocarse desde SQL, y preferir %TYPE cuando el dato viene de una columna de tabla. " +
+    "Cubre las tres formas de invocar una función (dentro de una consulta SQL, desde código PL/SQL, y de forma interactiva contra DUAL). " +
+    "Explica DETERMINISTIC como una promesa al optimizador que habilita índices basados en función (y que, si es falsa, produce resultados incorrectos sin ningún error visible), RESULT_CACHE para calcular una vez y servir muchas veces (cuándo ayuda y cuándo estorba según el patrón de escritura de los datos), y PRAGMA UDF para optimizar funciones que se invocan casi siempre desde SQL. " +
+    "Aborda el manejo de excepciones dentro de una función (toda ruta debe terminar en RETURN, o se produce ORA-06503 en ejecución, nunca en compilación), la cláusula AUTHID (DEFINER vs. CURRENT_USER, y el detalle de que los privilegios recibidos por un rol no aplican bajo derechos del definidor), el empaquetado de funciones en PACKAGE/PACKAGE BODY, y el diagnóstico con el diccionario de datos: SHOW ERRORS, USER_ERRORS, USER_OBJECTS y USER_SOURCE.",
+
+  enunciado: 
+  "1. Paso 0 al 1: Preparación del esquema de práctica (tablas FN_) y creación de la primera función escalar con parámetros predeterminados.\n2. Paso 2 al 4: Exploración de las formas de invocación, y resolución de errores comunes como tipos con precisión en el RETURN o rutas lógicas sin retorno (ORA-06503).\n3. Paso 5 al 7: Optimización y restricciones con DETERMINISTIC (índices basados en funciones), RESULT_CACHE y manejo correcto de restricciones DML dentro de funciones SQL (PRAGMA UDF).\n4. Paso 8 al 10: Empaquetado modular (especificación y cuerpo), diagnóstico con el diccionario de datos (USER_ERRORS, USER_OBJECTS) y recompilación tras alteraciones.\n5. Ejercicios propuestos: Creación de funciones de formato, consultas internas de conteo sin nulos, funciones agrupables en SQL, diagnóstico en diccionario y migración a paquetes.",
+  imagen: imgNote.src,
+
+  tecnologias: [
+    "Oracle",
+    "PL/SQL",
+  ],
+
+  demo: "",
+
+  codigo: "/pdf/02_funciones_plsql19c.sql",
+
+  pdfUrl: "/pdf/02_Funciones_PLSQL19c.pdf",
+
+  conceptosAplicados: [
+    "Se aprendió que una función se guarda permanentemente en la base de datos con dueño, privilegios y dependencias, a diferencia de un bloque anónimo temporal.",
+    "Se aprendió a diferenciar una función (devuelve un valor y se puede usar en SQL) de un procedimiento (ejecuta acciones con parámetros OUT y no se usa en consultas SQL).",
+    "Se aprendió que la cláusula RETURN en la firma de una función nunca debe llevar tamaño ni precisión (se escribe RETURN VARCHAR2, nunca RETURN VARCHAR2(12)).",
+    "Se aprendió que los parámetros de una función deben ser de tipo IN si se va a usar en SQL, los valores por defecto van al final, y es recomendable usar %TYPE para ajustarse a las columnas de las tablas.",
+    "Se aprendió que usar funciones dentro de sentencias SQL genera un costo por el cambio de contexto entre motores, y puede anular el uso de índices a menos que se creen índices basados en funciones.",
+    "Se aprendió que para que una función pueda usarse dentro de un SQL debe cumplir reglas estrictas: solo parámetros IN, tipos de datos compatibles, cero operaciones DML/DDL/COMMIT y manejo interno de errores.",
+    "Se aprendió que la opción DETERMINISTIC le indica al optimizador que la función siempre da el mismo resultado con los mismos datos, lo cual es obligatorio para crear índices basados en funciones.",
+    "Se aprendió a usar RESULT_CACHE para guardar en memoria los resultados de consultas frecuentes que cambian poco, mejorando el rendimiento.",
+    "Se aprendió que toda función debe terminar obligatoriamente en un RETURN; de lo contrario, si el flujo llega al final sin devolver nada, se producirá un error en ejecución (ORA-06503).",
+    "Se aprendió la diferencia de permisos entre AUTHID DEFINER (privilegios del creador) y AUTHID CURRENT_USER (privilegios del usuario que la ejecuta).",
+    "Se aprendió a agrupar funciones en paquetes (PACKAGE y PACKAGE BODY), lo que permite modificar la lógica interna sin afectar ni invalidar a los programas que los llaman.",
+    "Se aprendió a usar el diccionario de datos (vistas como USER_ERRORS, USER_OBJECTS y USER_SOURCE) para encontrar y corregir fallos de compilación con precisión."
+  ],
+
+  categoria: "PL/SQL Scripts",
+},
+
+{
+  titulo: "Procedimientos Almacenados en PL/SQL - Oracle",
+
+  tema:
+    "Módulo 3 de 4: CREATE PROCEDURE, modos de parámetro (IN/OUT/IN OUT), transacciones y quién debe confirmarlas, excepciones y trazabilidad, PRAGMA AUTONOMOUS_TRANSACTION, paquetes, BULK COLLECT/FORALL y diagnóstico de dependencias",
+
+  descripcion:
+    "Tercer módulo de PL/SQL de Bases de Datos: Es un modulo sobre procedimientos almacenados en PL/SQL (Oracle Database). Explica la ejecución de acciones sobre los datos, el control de transacciones, el manejo avanzado de excepciones con trazabilidad y el diseño modular mediante paquetes.",
+
+  descripcionLarga:
+    "Tercer módulo (de cuatro) de PL/SQL dentro de la asignatura de Bases de Datos, dedicado a los procedimientos almacenados en Oracle Database: la unidad que existe para ejecutar una acción sobre los datos (registrar, actualizar, anular), a diferencia de la función, que calcula y no debería modificar nada. Con el procedimiento entran al curso tres temas que ya no son de sintaxis sino de diseño: transacciones, privilegios y manejo de errores. " +
+    "Explica cuándo usar procedimiento y cuándo función con una tabla de decisión práctica (si modifica datos o produce un efecto, procedimiento; si el resultado es un valor para usar en una expresión o dentro de una consulta SQL, función), la anatomía de CREATE PROCEDURE con parámetros declarados con %TYPE, y los tres modos de parámetro: IN (solo lectura, acepta literal o expresión), OUT (empieza en NULL y exige una variable al invocar) e IN OUT (entra con valor y sale modificado), incluyendo la sugerencia NOCOPY y su riesgo si el procedimiento falla a mitad de camino. " +
+    "Desarrolla un procedimiento completo siguiendo el patrón validar-actuar-informar, con FOR UPDATE para bloquear la fila de un recurso compartido hasta el final de la transacción y evitar que dos sesiones simultáneas se lo pasen. " +
+    "Explica el manejo de excepciones con trazabilidad (SQLCODE, SQLERRM, DBMS_UTILITY.FORMAT_ERROR_BACKTRACE y RAISE para no perder el error original), SAVEPOINT y ROLLBACK TO para deshacer solo una parte de la transacción, y PRAGMA AUTONOMOUS_TRANSACTION para registros de auditoría que deben sobrevivir a un ROLLBACK de la operación principal, junto con su uso peligroso (esquivar un bloqueo o una tabla mutante). " +
+    "Cierra con el empaquetado de procedimientos (especificación pública y cuerpo con lógica privada, incluyendo excepciones con nombre vía PRAGMA EXCEPTION_INIT), el procesamiento masivo con BULK COLLECT, FORALL, LIMIT y SAVE EXCEPTIONS para procesar por lotes sin abortar en el primer error, y el diagnóstico de privilegios (GRANT EXECUTE), dependencias (USER_DEPENDENCIES) y objetos invalidados (USER_OBJECTS) tras alterar una tabla.",
+
+  enunciado: "1. Paso 0 al 2: Preparación del esquema de práctica (tablas PR_ con columnas IDENTITY), creación de procedimientos simples y estudio de los modos de parámetros (IN, OUT, IN OUT).\n\n2. Paso 3 al 6: Desarrollo de PR_REGISTRAR_MATRICULA aplicando el patrón validar-actuar-informar, control de concurrencia con FOR UPDATE, manejo de errores de negocio y captura de trazas sin perder el error original.\n\n3. Paso 7 al 9: Uso de transacciones autónomas (PRAGMA AUTONOMOUS_TRANSACTION) para auditoría persistente ante un ROLLBACK, simulación de bloqueos entre sesiones concurrentes y control transaccional parcial con SAVEPOINT.\n\n4. Paso 10 al 12: Empaquetado de la lógica en PK_MATRICULA con funciones privadas, procesamiento masivo por lotes con BULK COLLECT/FORALL/LIMIT/SAVE EXCEPTIONS y diagnóstico de dependencias tras modificaciones de esquema.\n\n5. Ejercicios propuestos: Implementación de traslados seguros de asignaturas, parámetros OUT con diagnóstico en texto, cierres de periodo masivos sin bucles, auditoría autónoma integrada y análisis de riesgos en confirmaciones por lotes.",
+  imagen: imgNote.src,
+
+  tecnologias: [
+    "Oracle",
+    "PL/SQL",
+  ],
+
+  demo: "",
+
+  codigo: "/pdf/03_procedimientos_plsql19c.sql",
+
+  pdfUrl: "/pdf/03_Procedimientos_PLSQL19c.pdf",
+
+conceptosAplicados: [
+    "Se aprendió que un procedimiento ejecuta acciones sobre los datos mientras que una función calcula y devuelve valores; un nombre que combine ambas tareas suele indicar una mala separación de responsabilidades.",
+    "Se aprendieron los tres modos de parámetro: IN (solo lectura), OUT (inicia en vacío y debe asignarse) e IN OUT (entra con valor y puede ser modificado).",
+    "Se aprendió el patrón de diseño validar-actuar-informar: realizar todas las comprobaciones necesarias antes de modificar cualquier dato para evitar dejar operaciones a medias.",
+    "Se aprendió que la cláusula FOR UPDATE bloquea una fila compartida (como un cupo) hasta finalizar la transacción, previniendo que varias sesiones excedan los límites simultáneamente.",
+    "Se aprendió que las transacciones inician con la primera sentencia DML de la sesión y no al arrancar el procedimiento, y que las excepciones no controladas solo deshacen la sentencia fallida.",
+    "Se aprendió a determinar qué componente debe ejecutar el COMMIT según el contexto: la aplicación, el procedimiento si es una unidad autónoma de trabajo, o ninguno si es llamado por otro bloque.",
+    "Se aprendió a registrar errores conservando la trazabilidad técnica mediante SQLCODE, SQLERRM y DBMS_UTILITY.FORMAT_ERROR_BACKTRACE, utilizando RAISE para evitar que el fallo sea ignorado.",
+    "Se aprendió a emplear SAVEPOINT y ROLLBACK TO para revertir operaciones específicas de manera parcial sin perder el trabajo previo de la transacción.",
+    "Se aprendió que PRAGMA AUTONOMOUS_TRANSACTION genera una transacción independiente capaz de confirmar datos de forma aislada, útil para registros de auditoría pero riesgosa si se emplea para eludir bloqueos.",
+    "Se aprendió a estructurar procedimientos dentro de paquetes (PACKAGE y PACKAGE BODY), ocultando la lógica interna (como funciones auxiliares BOOLEAN) y manejando excepciones con nombres personalizados mediante PRAGMA EXCEPTION_INIT.",
+    "Se aprendió a optimizar el rendimiento con grandes volúmenes de datos usando BULK COLLECT, FORALL, LIMIT para la gestión de memoria y SAVE EXCEPTIONS para continuar el lote ante errores puntuales.",
+    "Se aprendió a verificar privilegios mediante GRANT EXECUTE, analizar relaciones con USER_DEPENDENCIES y revisar el estado de objetos en USER_OBJECTS tras alterar las tablas base."
+  ],
+
+  categoria: "PL/SQL Scripts",
+},
+
+{
+  titulo: "Disparadores (Triggers) en PL/SQL - Oracle",
+
+  tema:
+    "Módulo 4 de 4: taxonomía de disparadores, orden de disparo, :NEW/:OLD, INSTEAD OF sobre vistas, la tabla mutante (ORA-04091), disparadores compuestos, FOLLOWS, disparadores de sistema/DDL y diagnóstico con el diccionario de datos",
+
+  descripcion:
+    "Cuarto módulo de PL/SQL de Bases de Datos: Módulo práctico final sobre disparadores (triggers) en PL/SQL (Oracle Database). Analiza la ejecución basada en eventos, la taxonomía de tipos, el orden de disparo, el manejo de vistas complejas y la resolución del problema de la tabla mutante mediante disparadores compuestos.",
+
+  descripcionLarga: 
+  "Cuarto y último módulo práctico de PL/SQL sobre disparadores (triggers) desarrollado para la asignatura de Bases de Datos. El script examina los eventos que desencadenan código de forma automática, insistiendo en evaluar primero alternativas declarativas (como DEFAULT, IDENTITY o restricciones). Desarrolla en profundidad la taxonomía de disparadores DML, INSTEAD OF, compuestos y de sistema/DDL, detallando su orden de ejecución, el uso de las variables de transición :NEW y :OLD, y la aplicación de predicados condicionales (INSERTING, UPDATING, DELETING). Asimismo, aborda el análisis del error de tabla mutante (ORA-04091) y su solución eficiente mediante Compound Triggers, cerrando con auditorías de esquema y diagnóstico en el diccionario de datos.",
+  enunciado: 
+  "1. Paso 0 al 3: Preparación del esquema de práctica, implementación de un disparador BEFORE INSERT para valores derivados, uso de predicados condicionales para auditoría unificada y optimización con la cláusula WHEN.\n\n2. Paso 4 al 6: Análisis detallado del orden de disparo (sentencia vs. fila), control secuencial con FOLLOWS e implementación de disparadores INSTEAD OF UPDATE para hacer actualizables vistas complejas con múltiples relaciones.\n\n3. Paso 7 al 8: Estudio del error clásico de tabla mutante (ORA-04091) al validar reglas de negocio en tiempo de ejecución, y su resolución definitiva utilizando disparadores compuestos (Compound Triggers).\n\n4. Paso 9 al 11: Creación de disparadores a nivel de esquema (DDL), validación de la prohibición de COMMIT/ROLLBACK internos (ORA-04092) y auditoría de objetos mediante el diccionario de datos (USER_TRIGGERS).\n\n5. Ejercicios propuestos: Creación de auditorías de columnas específicas, restricciones de borrado condicional, despliegue completo de vistas con INSTEAD OF (INSERT/DELETE), análisis crítico frente a restricciones tradicionales y medición de impacto en rendimiento por lotes masivos.",
+  imagen: imgNote.src,
+
+  tecnologias: [
+    "Oracle",
+    "PL/SQL",
+  ],
+
+  demo: "",
+
+  codigo: "/pdf/04_triggers_plsql19c.sql",
+
+  pdfUrl: "/pdf/04_Triggers_PLSQL19c.pdf",
+
+conceptosAplicados: [
+    "Se aprendió que un disparador se ejecuta automáticamente como reacción a un evento de base de datos y no puede ser invocado de forma directa.",
+    "Se aprendió a priorizar las alternativas declarativas de Oracle (como DEFAULT, IDENTITY, restricciones y columnas virtuales) antes de justificar la creación de un disparador.",
+    "Se aprendió la taxonomía fundamental de los cuatro tipos de disparadores: DML simples, INSTEAD OF (exclusivos para vistas), compuestos y de sistema o DDL.",
+    "Se aprendió el orden estricto de ejecución en una tabla: BEFORE de sentencia, BEFORE de fila, modificación de datos, AFTER de fila y AFTER de sentencia.",
+    "Se aprendió que la manipulación de la variable de transición :NEW solo es válida y efectiva dentro de un disparador de tipo BEFORE de fila.",
+    "Se aprendió a diferenciar el uso de :OLD y :NEW según la operación DML, y que en la cláusula WHEN se escriben sin los dos puntos iniciales.",
+    "Se aprendió a emplear disparadores INSTEAD OF para convertir vistas complejas con múltiples uniones (joins) en estructuras actualizables.",
+    "Se aprendió qué provoca el error de tabla mutante (ORA-04091) como un mecanismo de protección del motor para evitar lecturas sobre estados intermedios e inconsistentes.",
+    "Se aprendió a solucionar la tabla mutante mediante disparadores compuestos (Compound Triggers), separando la recolección de datos en filas y la validación final a nivel de sentencia.",
+    "Se aprendió a gestionar el orden de ejecución entre múltiples disparadores de un mismo evento utilizando las cláusulas FOLLOWS o PRECEDES.",
+    "Se aprendió que las operaciones de control transaccional (COMMIT y ROLLBACK) están terminantemente prohibidas dentro de un disparador (ORA-04092).",
+    "Se aprendió a diagnosticar y administrar disparadores consultando vistas del diccionario de datos como USER_TRIGGERS y USER_ERRORS."
+  ],
+
+  categoria: "PL/SQL Scripts",
+},
+
+{
+  titulo: "Cursores en PL/SQL - Oracle",
+
+  tema:
+    "Los cinco tipos de cursor: implícito, explícito, ciclo FOR, parametrizados con FOR UPDATE/WHERE CURRENT OF, y cursores de referencia (SYS_REFCURSOR) con procesamiento masivo (BULK COLLECT/FORALL)",
+
+  descripcion:
+    "Clase de PL/SQL sobre cursores en Oracle: Cubre el cursor implícito que ya se usa sin saberlo, el ciclo de vida completo del cursor explícito, el ciclo FOR, cursores parametrizados con bloqueo posicionado, cursores de referencia para devolver resultados fuera de la base de datos, y por qué BULK COLLECT/FORALL son más rápidos que un ciclo fila a fila.",
+
+  descripcionLarga:
+    "Clase de PL/SQL dentro de la asignatura de Bases de Datos, dedicada a los cursores en Oracle Database: El cursor es el área de trabajo donde Oracle deja el resultado de una consulta para que PL/SQL lo consuma fila por fila, y la decisión nunca es si usar un cursor (toda sentencia SQL ejecutada desde PL/SQL abre uno, se declare o no) sino cuál de los cinco tipos corresponde al problema. " +
+    "Explica el cursor implícito, el que se usa sin saberlo en cualquier INSERT/UPDATE/DELETE o SELECT ... INTO, y sus cuatro atributos (SQL%FOUND, SQL%NOTFOUND, SQL%ROWCOUNT, SQL%ISOPEN), aclarando que siempre se refieren a la última sentencia ejecutada y que SELECT ... INTO es el que levanta NO_DATA_FOUND y TOO_MANY_ROWS. " +
+    "Desarrolla el cursor explícito con su ciclo de vida completo en cuatro fases (declaración, apertura, recuperación con FETCH, cierre), sus cuatro atributos (c%ISOPEN, c%FOUND, c%NOTFOUND, c%ROWCOUNT) y cómo cambian antes de OPEN, después de OPEN y tras el último FETCH, además del error ORA-01000 por no cerrar cursores y el ORA-01001 por consultar atributos antes de abrir. " +
+    "Compara el ciclo FOR sobre cursor (que oculta las cuatro fases, cierra incluso ante una excepción, y es el caso más frecuente en producción) contra el cursor explícito (necesario cuando se requiere %ROWCOUNT durante el recorrido, salida anticipada bajo una condición propia, o recuperación desde varios puntos del código). " +
+    "Cubre cursores parametrizados (una sola definición reutilizable con valores de entrada distintos en cada ejecución), y la actualización posicionada con FOR UPDATE y WHERE CURRENT OF: cómo OPEN con FOR UPDATE bloquea todas las filas del resultado (no solo la que se procesa) hasta el COMMIT o ROLLBACK, y las variantes NOWAIT y SKIP LOCKED. " +
+    "Explica los cursores de referencia (SYS_REFCURSOR), donde quien abre el cursor no es necesariamente quien lo recorre, el mecanismo estándar para devolver un resultado desde un procedimiento hacia una aplicación en Java, .NET o Python, comparándolos con el cursor estático (consulta fija en compilación, validada por el compilador, de alcance local) frente al de referencia (construible en ejecución, pasado como parámetro, validado al abrirse). " +
+    "Cierra con el procesamiento masivo: BULK COLLECT para traer muchas filas en una sola operación (con el riesgo de ORA-04030 si no se usa LIMIT sobre tablas grandes), FORALL para enviar muchas sentencias DML en una sola pasada al motor SQL (con SAVE EXCEPTIONS para continuar ante filas con error), y la razón técnica detrás de ambos: PL/SQL y SQL son dos motores distintos dentro de la misma instancia, y cada FETCH o DML individual implica un cambio de contexto que se multiplica por cada fila en un ciclo convencional.",
+
+  enunciado:
+    "Clase estructurada en torno a los cinco tipos de cursor, cada uno ilustrado con un ejemplo completo sobre un esquema de productos, pedidos y movimientos de inventario:\n\n" +
+    "1. Cursor implícito: un UPDATE sobre productos de una categoría, consultando SQL%ROWCOUNT y SQL%NOTFOUND tras la sentencia.\n\n" +
+    "2. Cursor explícito: recorrido completo de las cuatro fases (declaración, OPEN, FETCH dentro de un LOOP con EXIT WHEN c%NOTFOUND, CLOSE) sobre una vista de stock consolidado, para listar productos por debajo del mínimo.\n\n" +
+    "3. Ciclo FOR sobre cursor: el mismo tipo de recorrido sin las cuatro fases explícitas, y el criterio para decidir entre FOR y cursor explícito según la necesidad de %ROWCOUNT, salida anticipada o recuperación desde varios puntos.\n\n" +
+    "4. Cursores parametrizados: una definición de cursor con parámetros de cliente y fecha, ejecutada con distintos valores en el ciclo FOR.\n\n" +
+    "5. Actualización posicionada: un cursor FOR UPDATE OF sobre precios de una categoría, actualizado fila por fila con UPDATE ... WHERE CURRENT OF, y el análisis del alcance y la duración del bloqueo.\n\n" +
+    "6. Cursores de referencia: un procedimiento con parámetro OUT de tipo SYS_REFCURSOR que abre una consulta de movimientos de inventario para que la aplicación cliente la recorra y la cierre.\n\n" +
+    "7. Procesamiento masivo: BULK COLLECT INTO una colección de identificadores de producto, y FORALL para actualizar el stock mínimo de todos ellos en una sola pasada al motor SQL, comparando el costo de cambio de contexto entre PL/SQL y SQL.",
+
+  imagen: imgNote.src,
+
+  tecnologias: [
+    "Oracle",
+    "PL/SQL",
+  ],
+
+  demo: "",
+
+  codigo: "",
+
+  pdfUrl: "/pdf/PLSQL_01_Cursores.pdf",
+
+conceptosAplicados: [
+    "Se aprendió que toda sentencia SQL ejecutada desde PL/SQL abre un cursor, se declare o no, y que la decisión nunca es si usar uno sino cuál de los cinco tipos corresponde al problema.",
+    "Se aprendieron los cuatro atributos del cursor implícito (SQL%FOUND, SQL%NOTFOUND, SQL%ROWCOUNT, SQL%ISOPEN) y que siempre se refieren a la última sentencia ejecutada.",
+    "Se aprendió el ciclo de vida completo del cursor explícito en cuatro fases: declaración, apertura, recuperación con FETCH y cierre, y el error ORA-01000 por no cerrarlo.",
+    "Se aprendió que el orden importa: EXIT WHEN c%NOTFOUND debe ir inmediatamente después del FETCH, porque invertirlo procesa la última fila dos veces.",
+    "Se aprendió a elegir entre el ciclo FOR sobre cursor (recorrido completo, código más corto, cierre automático incluso ante excepción) y el cursor explícito (cuando se necesita %ROWCOUNT durante el recorrido, salida anticipada o control fino de apertura y cierre).",
+    "Se aprendió a usar cursores parametrizados para reutilizar una misma definición de consulta con distintos valores de entrada en cada ejecución.",
+    "Se aprendió que OPEN con FOR UPDATE bloquea todas las filas del resultado (no solo la que se procesa) hasta el COMMIT o el ROLLBACK, no hasta el CLOSE.",
+    "Se aprendió la diferencia entre FOR UPDATE NOWAIT (falla de inmediato si otra sesión tiene las filas) y FOR UPDATE SKIP LOCKED (omite las filas bloqueadas, patrón de cola de trabajo).",
+    "Se aprendió qué es un cursor de referencia (SYS_REFCURSOR), que quien lo abre no es necesariamente quien lo recorre, y que es el mecanismo estándar para devolver resultados a una aplicación externa.",
+    "Se aprendió la diferencia entre un cursor estático (consulta fija, validada en compilación, de alcance local) y uno de referencia (construible en ejecución, pasado como parámetro, validado al abrirse).",
+    "Se aprendió que BULK COLLECT y FORALL reducen el número de cambios de contexto entre los motores PL/SQL y SQL, y que esa ganancia solo se nota con volúmenes de cientos o miles de filas.",
+    "Se aprendió que BULK COLLECT sin la cláusula LIMIT puede cargar todo el resultado en memoria de sesión y producir ORA-04030 en tablas grandes, y que FORALL con SAVE EXCEPTIONS permite continuar ante filas con error y revisarlas al final."
+  ],
+
+  categoria: "PL/SQL Scripts",
+},
+
+{
+  titulo: "Excepciones en PL/SQL - Oracle",
+
+  tema:
+    "Las tres familias de excepciones, RAISE vs. RAISE_APPLICATION_ERROR, PRAGMA EXCEPTION_INIT, SQLCODE/SQLERRM/FORMAT_ERROR_BACKTRACE, WHEN OTHERS, propagación entre bloques, excepciones y transacciones, y antipatrones de manejo de errores",
+
+  descripcion:
+    "Clase de PL/SQL sobre manejo de errores en Oracle: qué es una excepción y cómo altera el flujo de un bloque, las tres familias de excepciones, cuándo usar RAISE frente a RAISE_APPLICATION_ERROR, cómo nombrar un error ORA sin asignar con PRAGMA EXCEPTION_INIT, por qué una excepción no revierte la transacción por sí sola, y los antipatrones más comunes (WHEN OTHERS THEN NULL) que convierten un fallo real en un silencio.",
+
+  descripcionLarga:
+    "Clase de PL/SQL dentro de la asignatura de Bases de Datos, dedicada al manejo de errores: La idea central de la sesión es que el error no es la excepción en sí misma, sino no atenderla, o peor, esconderla. " +
+    "Explica qué es una excepción (una condición que interrumpe la ejecución normal del cuerpo del bloque y salta a la sección EXCEPTION) y su propagación: si el bloque la maneja, el programa continúa después de END; si no, sube al bloque que lo llamó; si nadie la maneja, llega al cliente como un error ORA con la transacción a medias. Detalla la anatomía del bloque DECLARE/BEGIN/EXCEPTION/END, destacando que" +
+     "un error producido dentro de la propia sección EXCEPTION no lo atiende ese mismo bloque, sino que se propaga hacia afuera. Desarrolla las tres familias de excepciones: predefinidas (ya existen en el lenguaje, como NO_DATA_FOUND o TOO_MANY_ROWS), no predefinidas (errores ORA sin nombre asignado, que se nombran con PRAGMA EXCEPTION_INIT) y definidas por el usuario (representan reglas de negocio, no fallas técnicas)." + 
+     "Repasa las excepciones predefinidas más frecuentes con su código ORA (NO_DATA_FOUND, TOO_MANY_ROWS, DUP_VAL_ON_INDEX, ZERO_DIVIDE, INVALID_NUMBER, VALUE_ERROR, CURSOR_ALREADY_OPEN) y aclara que NO_DATA_FOUND la levanta SELECT ... INTO, nunca un FETCH sobre cursor explícito, donde se usa %NOTFOUND. Compara RAISE (levanta una excepción declarada, visible solo dentro de PL/SQL, y si escapa el cliente recibe un ORA-06510 genérico)"+
+     " contra RAISE_APPLICATION_ERROR (genera un error con número propio en el rango -20000 a -20999 y mensaje de hasta 2.048 bytes que viaja hasta la aplicación cliente, quien puede distinguirlo por su código), remarcando que un procedimiento que valida reglas de negocio y solo usa RAISE deja al cliente sin forma de saber qué regla se incumplió. Cubre PRAGMA EXCEPTION_INIT "+
+     "para ponerle nombre a un error del motor y poder atenderlo por separado sin recurrir a WHEN OTHERS, y las funciones de diagnóstico SQLCODE, SQLERRM, DBMS_UTILITY.FORMAT_ERROR_STACK y DBMS_UTILITY.FORMAT_ERROR_BACKTRACE, aclarando que SQLERRM dice qué pasó y FORMAT_ERROR_BACKTRACE dice dónde, por lo que registrar solo el primero obliga a adivinar la línea. Trata WHEN OTHERS como el manejador más usado y el peor usado: "+
+     "el antipatrón WHEN OTHERS THEN NULL convierte un fallo en un silencio donde nadie se entera de que el proceso no ocurrió, frente a la forma correcta de registrar el error y relanzarlo con RAISE. Explica la propagación entre bloques anidados (cada nivel busca un manejador que coincida; manejar una excepción sin relanzarla equivale a declarar que el problema quedó resuelto), y la relación entre excepciones y transacciones: "+ 
+     "una excepción no revierte nada por sí sola, el trabajo previo sigue pendiente hasta un ROLLBACK explícito, aunque la sentencia que falla sí se deshace por completo al ser atómica a nivel de sentencia; SAVEPOINT permite revertir solo hasta un punto. Cierra con la transacción autónoma (PRAGMA AUTONOMOUS_TRANSACTION) para que un registro de bitácora de errores sobreviva a un ROLLBACK que revierte la operación principal, un catálogo " +
+     "de seis antipatrones frecuentes (desde WHEN OTHERS THEN NULL hasta códigos fuera del rango permitido), y una lista de buenas prácticas: atender primero lo específico, registrar SQLCODE/SQLERRM/backtrace antes de relanzar, nombrar las reglas de negocio con excepciones propias, mantener un catálogo de códigos -20xxx documentado, decidir explícitamente el alcance transaccional, y nunca hacer COMMIT dentro de un procedimiento reutilizable.",
+  enunciado:
+    "Clase estructurada en torno al manejo de errores en PL/SQL, con ejemplos sobre un esquema de productos, pedidos y facturación:\n\n" +
+    "1. Anatomía del bloque: estructura DECLARE/BEGIN/EXCEPTION/END con varios manejadores encadenados y WHEN OTHERS como último recurso.\n\n" +
+    "2. Las tres familias de excepciones: identificación de NO_DATA_FOUND como predefinida, un error de llave foránea (ORA-02291) como no predefinida, y una regla de stock insuficiente como excepción propia del negocio.\n\n" +
+    "3. Excepción propia del negocio: un procedimiento de validación de despacho que declara e_stock_insuficiente, la levanta con RAISE cuando no hay disponibilidad suficiente, y la atiende en su propia sección EXCEPTION.\n\n" +
+    "4. RAISE_APPLICATION_ERROR: devolver al cliente un error propio numerado (-20011) al intentar operar sobre un pedido ya anulado, comparando su alcance con el de un RAISE simple.\n\n" +
+    "5. PRAGMA EXCEPTION_INIT: nombrar el error ORA-02291 (violación de llave foránea) como e_fk_violada para atenderlo sin recurrir a WHEN OTHERS.\n\n" +
+    "6. Diagnóstico del error: uso de SQLCODE, SQLERRM y DBMS_UTILITY.FORMAT_ERROR_BACKTRACE para registrar qué ocurrió y en qué línea exacta.\n\n" +
+    "7. WHEN OTHERS correcto e incorrecto: comparar el antipatrón WHEN OTHERS THEN NULL (que hace desaparecer el fallo de una facturación) contra la forma correcta de registrar el error y relanzarlo con RAISE.\n\n" +
+    "8. Propagación entre bloques: un bloque interno que atiende NO_DATA_FOUND como caso previsto, dejando que cualquier otro error siga propagándose hacia afuera.\n\n" +
+    "9. Excepciones y transacciones: uso de SAVEPOINT y ROLLBACK TO para revertir solo el trabajo hecho desde un punto determinado, sin perder toda la transacción.\n\n" +
+    "10. Transacción autónoma para bitácora: un procedimiento sp_registrar_error con PRAGMA AUTONOMOUS_TRANSACTION que confirma el registro del error aunque la operación principal se revierta con ROLLBACK.",
+
+  imagen: imgNote.src,
+
+  tecnologias: [
+    "Oracle",
+    "PL/SQL",
+  ],
+
+  demo: "",
+
+  codigo: "",
+
+  pdfUrl: "/pdf/PLSQL_02_Excepciones.pdf",
+
+conceptosAplicados: [
+    "Se aprendió que una excepción no es un fallo del programa sino información sobre lo que ocurrió, y que el verdadero error es no atenderla o esconderla.",
+    "Se aprendió que un error producido dentro de la propia sección EXCEPTION no lo atiende ese bloque, sino que se propaga hacia afuera.",
+    "Se aprendió a distinguir las tres familias de excepciones: predefinidas (ya existen en el lenguaje), no predefinidas (errores ORA sin nombre, declarados con PRAGMA EXCEPTION_INIT) y definidas por el usuario (reglas de negocio, no fallas técnicas).",
+    "Se aprendió que NO_DATA_FOUND la levanta SELECT ... INTO, nunca un FETCH sobre cursor explícito, donde corresponde usar %NOTFOUND.",
+    "Se aprendió la diferencia entre RAISE (se queda dentro de PL/SQL, y si escapa produce un ORA-06510 genérico) y RAISE_APPLICATION_ERROR (código propio en el rango -20000 a -20999 que llega identificado hasta la aplicación cliente).",
+    "Se aprendió a usar PRAGMA EXCEPTION_INIT para ponerle nombre a un error del motor sin nombre asignado y poder atenderlo por separado, sin recurrir a WHEN OTHERS.",
+    "Se aprendió la diferencia entre SQLERRM (qué pasó) y DBMS_UTILITY.FORMAT_ERROR_BACKTRACE (dónde pasó exactamente), y que registrar solo el primero obliga a adivinar la línea del error.",
+    "Se aprendió que WHEN OTHERS THEN NULL es el antipatrón más dañino: convierte un fallo real en un silencio donde el proceso parece exitoso sin haberlo sido.",
+    "Se aprendió que manejar una excepción sin relanzarla equivale a declarar que el problema quedó resuelto, y que un bloque interno puede atender un caso local dejando pasar el resto de errores.",
+    "Se aprendió que una excepción no revierte la transacción por sí sola: el trabajo previo queda pendiente hasta un ROLLBACK explícito, aunque la sentencia que falló sí se deshace por completo al ser atómica.",
+    "Se aprendió a usar SAVEPOINT y ROLLBACK TO para revertir solo una parte de la transacción sin perder el trabajo anterior.",
+    "Se aprendió que PRAGMA AUTONOMOUS_TRANSACTION es necesaria para que un registro de bitácora de errores sobreviva a un ROLLBACK que revierte la operación principal, y que su COMMIT interno es obligatorio."
+  ],
+
+  categoria: "PL/SQL Scripts",
+},
+
+{
+    titulo: "Taller Práctico de PL/SQL - Sistema de Inventario y Ventas",
+    tema: "Procedimientos, funciones, cursores, excepciones, triggers y paquetes en Oracle PL/SQL",
+    descripcion:
+      "Repositorio con el desarrollo completo del taller de PL/SQL sobre un esquema de inventario, abarcando programación modular, control de concurrencia, manejo de errores y lógica transaccional en Oracle Database.",
+    descripcionLarga:
+      "Taller práctico de PL/SQL desarrollado para la asignatura Bases de Datos 2.\n\nEl taller implementa una solución robusta estructurada en 6 partes:\n1. Procedimientos almacenados para registro de productos, ajustes de inventario con control de concurrencia y creación de pedidos.\n2. Funciones escalares para consulta de stock, cálculo de cupo de crédito y reglas acumulables de descuento.\n3. Cursores explícitos, parametrizados, FOR UPDATE con WHERE CURRENT OF, SYS_REFCURSOR y procesamiento masivo con BULK COLLECT y FORALL.\n4. Manejo avanzado de excepciones, asociación de errores con PRAGMA EXCEPTION_INIT y transacciones autónomas para registro de errores (LOG_ERRORES).\n5. Disparadores (Triggers) a nivel de fila, sentencia y Compound Triggers para auditoría de precios, validación de márgenes, control de stock y actualización de totales, incluyendo un trigger INSTEAD OF en vistas.\n6. Caso integrador centralizado en el paquete PKG_VENTAS para la facturación segura de pedidos mediante SAVEPOINT.",
+    enunciado:
+      "1. Parte 1 (Procedimientos almacenados): SP_REGISTRAR_PRODUCTO, SP_AJUSTAR_STOCK y SP_CREAR_PEDIDO con validaciones y manejo de excepciones.\n\n2. Parte 2 (Funciones): FN_STOCK_DISPONIBLE, FN_CUPO_DISPONIBLE, FN_CALCULAR_DESCUENTO (con reglas acumulables) e invocación desde SQL.\n\n3. Parte 3 (Cursores): Reporte de bajo stock con cursor explícito, cursores parametrizados, actualización con WHERE CURRENT OF, SYS_REFCURSOR y optimización con BULK COLLECT/FORALL.\n\n4. Parte 4 (Manejo de excepciones): FN_PRECIO_PRODUCTO, SP_VALIDAR_DESPACHO, SP_ANULAR_PEDIDO, ligado de ORA-02291 y transacciones autónomas en SP_REGISTRAR_ERROR.\n\n5. Parte 5 (Disparadores): TRG_CLIENTE_BI, TRG_PRODUCTO_AU_PRECIO, TRG_PRODUCTO_BIU_MARGEN, TRG_DETALLE_AI_STOCK, TRG_DETALLE_TOTAL (Compound Trigger) y TRG_V_STOCK_IO.\n\n6. Parte 6 (Caso integrador): Paquete PKG_VENTAS exponiendo SP_FACTURAR_PEDIDO con gestión de puntos de salvado y control transaccional.",
+    imagen: imgNote.src,
+    tecnologias: ["Oracle", "PL/SQL", "SQL"],
+    demo: "",
+    codigo: "/pdf/TALLER_PLSQL_GRUPO_2.sql",
+    pdfUrl: "/pdf/TALLER_PLSQL_GRUPO_2.pdf",
+    conceptosAplicados: [
+      "Procedimientos almacenados y bloques anónimos PL/SQL",
+      "Funciones escalares y lógica de negocio",
+      "Cursores explícitos, parametrizados y FOR UPDATE",
+      "Actualización posicionada con WHERE CURRENT OF",
+      "SYS_REFCURSOR y cursores de referencia",
+      "Optimización con BULK COLLECT y FORALL",
+      "Manejo avanzado de excepciones y PRAGMA EXCEPTION_INIT",
+      "Transacciones autónomas (PRAGMA AUTONOMOUS_TRANSACTION)",
+      "Disparadores BEFORE, AFTER y Compound Triggers",
+      "Disparadores INSTEAD OF en vistas complejas",
+      "Control de concurrencia con SELECT ... FOR UPDATE",
+      "Estrategias transaccionales con SAVEPOINT y ROLLBACK parcial",
+      "Paquetes PL/SQL (Package Specification y Body)",
+      "Esquema relacional de inventario y ventas"
+    ],
+    categoria: "PL/SQL Scripts",
+  }
 
 ];
 

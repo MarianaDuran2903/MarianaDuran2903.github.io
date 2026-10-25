@@ -43,7 +43,7 @@ const SkillsList = () => {
     "Mi Experiencia": [
       "Actualmente no tengo experiencia trabajando en la carrera que estudio.",
     ],
-    "Mi formacion": [
+    "Mi formación": [
       "Actualmente me encuentro estudiando ingenieria de sistemas en la Universidad del Bosque.",
     ],
     "¿Cómo trabajo en equipo?": [
