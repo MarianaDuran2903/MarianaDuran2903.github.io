@@ -325,7 +325,7 @@ const evidenciasBase = [
 
   codigo: "/pdf/01_demos.sql",
 
-  pdfUrl: "/pdf/Clase_Optimizacion_Basica_de_Consultas_Oracle19c.pdf",
+  pdfUrl: "/pdf/Clase_Optimizacion_Basica_de_Consultas_Oracle19c_1.pdf",
 
   conceptosAplicados: [
     "Se aprendió que en SQL se declara el resultado deseado y es el optimizador quien decide el camino de ejecución según un costo estimado.",
@@ -934,6 +934,36 @@ conceptosAplicados: [
       "Esquema relacional de inventario y ventas"
     ],
     categoria: "PL/SQL Scripts",
+  },
+  {
+    titulo: "Ejercicios Prácticos de MongoDB - Dataset Airbnb",
+    tema: "Operaciones CRUD, consultas avanzadas (find), proyecciones, operadores de actualización, agregaciones ($match, $group, $unwind, $bucket, $lookup) y manejo de fechas",
+    descripcion:
+      "Taller práctico con 30 ejercicios resueltos sobre MongoDB utilizando la colección listingsAndReviews de Airbnb, abarcando desde inserciones básicas hasta pipelines complejos de agregación y análisis de datos.",
+    descripcionLarga:
+      "Taller práctico de MongoDB estructurado en 30 ejercicios progresivos aplicados sobre el dataset de Airbnb (sample_airbnb). El documento cubre la manipulación de documentos mediante insertOne e insertMany (incluyendo objetos anidados, arrays y validación de unicidad en _id), consultas de filtrado avanzada con operadores relacionales y lógicos ($gt, $lt, $and, $in, $regex), consultas sobre arreglos ($size, elementos específicos), ordenamiento, limitación y proyección de resultados. Asimismo, explora operadores de actualización ($set, $push, $inc, $pull, upsert) y el uso avanzado de pipelines de agregación para análisis estadísticos, cálculos de promedios, agrupación, desestructuración con $unwind, rangos con $bucket, conversiones de tipos y simulaciones de uniones mediante $lookup.",
+    enunciado:
+      "1. Inserciones básicas y avanzadas (insertOne, insertMany con objetos anidados y arrays, validación de unicidad de _id).\n\n2. Consultas y proyecciones (find con operadores de comparación $gt, $lt, condiciones lógicas $and, $in, expresiones regulares, y manejo de elementos en arrays).\n\n3. Ordenamiento, límites y proyecciones específicas sobre campos nulos o ausentes.\n\n4. Operadores de actualización de datos ($set, $push, $inc, $pull y upsert).\n\n5. Framework de Agregación: uso de $match, $count, $group para promedios y conteos, $unwind para desglosar arrays, conversiones de tipos ($toInt), $bucket para rangos de precios, simulación de JOINs con $lookup y extracción de fechas con operadores como $year.",
+    imagen: imgNote.src,
+    tecnologias: ["MongoDB", "NoSQL", "JSON"],
+    demo: "",
+    codigo: "",
+    pdfUrl: "/pdf/BD - Ejercicio Mongo.pdf",
+    conceptosAplicados: [
+      "Operaciones de inserción (insertOne, insertMany)",
+      "Restricción de unicidad y manejo del índice _id",
+      "Consultas de filtrado con operadores de comparación y lógicos ($gt, $lt, $and, $in)",
+      "Búsqueda por expresiones regulares ($regex) y consultas sobre arreglos ($size)",
+      "Proyecciones, ordenamiento (sort) y limitación de resultados (limit)",
+      "Operadores de actualización avanzada ($set, $push, $inc, $pull, upsert)",
+      "Framework de agregación de MongoDB ($match, $count)",
+      "Agrupación de datos y cálculos estadísticos ($avg, $sum)",
+      "Desestructuración de arreglos con $unwind para análisis de frecuencias",
+      "Agrupación por rangos numéricos utilizando el operador $bucket",
+      "Simulación de uniones relacionales (JOIN) mediante $lookup",
+      "Manipulación y extracción de datos temporales (fechas y operador $year)"
+    ],
+    categoria: "NoSQL",
   }
 
 ];
