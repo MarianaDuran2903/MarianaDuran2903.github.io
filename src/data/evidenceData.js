@@ -947,7 +947,7 @@ conceptosAplicados: [
     imagen: imgNote.src,
     tecnologias: ["MongoDB", "NoSQL", "JSON"],
     demo: "",
-    codigo: "",
+    codigo: "/pdf/Manual_MQL_MongoDB.pdf",
     pdfUrl: "/pdf/BD - Ejercicio Mongo.pdf",
     conceptosAplicados: [
       "Operaciones de inserción (insertOne, insertMany)",
@@ -962,6 +962,61 @@ conceptosAplicados: [
       "Agrupación por rangos numéricos utilizando el operador $bucket",
       "Simulación de uniones relacionales (JOIN) mediante $lookup",
       "Manipulación y extracción de datos temporales (fechas y operador $year)"
+    ],
+    categoria: "NoSQL",
+  },
+  {
+    titulo: "Taller Práctico de MQL - Consultas, Agregación e Índices en MongoDB",
+    tema: "Consultas avanzadas (find), framework de agregación (aggregate), operaciones, índices (regla ESR, explain) y modelado de datos con patrones de diseño NoSQL (sample_mflix)",
+    descripcion:
+      "Taller práctico integral sobre MongoDB utilizando el dataset sample_mflix, enfocado en consultas complejas, etapas de agregación, optimización con índices y aplicación práctica de patrones de diseño avanzados en NoSQL.",
+    descripcionLarga:
+      "Taller práctico de MQL (MongoDB Query Language). El taller se divide en cuatro componentes clave: Parte A, consultas de filtrado, operadores lógicos, proyecciones y expresiones regulares sobre la colección de películas; Parte B, pipelines de agregación avanzados utilizando $match, $group, $lookup y proyecciones; Parte C, operaciones de escritura, actualizaciones masivas, eliminaciones y análisis de rendimiento mediante explains e índices compuestos bajo la regla ESR (Equality, Sort, Range); y Parte D, modelado conceptual de casos de negocio reales (plataforma de domicilios tipo Rappi, monitoreo ambiental IoT) aplicando patrones de diseño de MongoDB como Subset, Extended Reference, Computed, Bucket, Schema Versioning, Outlier y Polymorphic.",
+    enunciado:
+      "1. Parte A (Consultas find): Filtrado de películas por géneros, rangos de años y ratings con proyecciones y expresiones regulares.\n\n2. Parte B (Agregación): Análisis estadísticos con $group, promedios, max, TOP de directores, conteos por década y cruces de colecciones con $lookup.\n\n3. Parte C (Escritura e Índices): Creación de colecciones mediante $out/$merge, actualizaciones/eliminaciones condicionales y optimización de rendimiento con explain('executionStats') e índices compuestos.\n\n4. Parte D (Modelado con Patrones): Diseño arquitectónico en herramientas como Hackolade para sistemas de domicilios, IoT y redes sociales, aplicando patrones de diseño avanzados.",
+    imagen: imgNote.src,
+    tecnologias: ["MongoDB", "NoSQL", "MQL", "JSON"],
+    demo: "",
+    codigo: "/pdf/taller_Duran_Gomez.zip",
+    pdfUrl: "/pdf/Taller_MQL_MongoDB (1).pdf",
+    pdfUrlSolucion: "/pdf/taller_Duran_Gomez.pdf",
+    conceptosAplicados: [
+      "Consultas avanzadas con find y operadores relacionales/lógicos",
+      "Proyecciones de campos y uso de expresiones regulares ($regex)",
+      "Framework de agregación ($match, $group, $sort, $limit, $unwind)",
+      "Cruces de colecciones mediante el operador de unión $lookup",
+      "Operaciones de escritura y modificación masiva (updateMany, deleteMany)",
+      "Optimización de consultas y análisis de planes de ejecución con explain e índices compuestos bajo regla ESR",
+      "Patrón Subset para documentos con colecciones secundarias extensas",
+      "Patrón Extended Reference para evitar lookups frecuentes",
+      "Patrón Computed para valores precalculados",
+      "Patrón Bucket para series de tiempo e IoT",
+      "Patrón Schema Versioning para evolución de esquemas sin migración masiva",
+      "Patrones Outlier y Polymorphic para manejo de datos irregulares"
+    ],
+    categoria: "NoSQL",
+  },
+  {
+    titulo: "Quiz Práctico de MongoDB - Dataset Restaurants",
+    tema: "Consultas geoespaciales ($geoWithin), pipelines de agregación ($match, $project, $arrayElemAt), manipulación con JavaScript en mongosh y análisis de datos espaciales entre colecciones",
+    descripcion:
+      "Quiz práctico de 3 ejercicios sobre MongoDB utilizando el dataset sample_restaurants, abarcando filtrado avanzado con calificaciones recientes, consultas geoespaciales con polígonos GeoJSON ($geoWithin) y procesamiento de resultados mediante scripts en mongo.",
+    descripcionLarga:
+      "Quiz práctico de MongoDB basado en el dataset sample_restaurants de MongoDB Atlas, enfocado en la resolución de problemas geoespaciales y de agregación. El ejercicio 1 implementa un pipeline de agregación para filtrar restaurantes en Manhattan con calificación 'A' en su evaluación más reciente ($arrayElemAt). Los ejercicios 2 y 3 resuelven análisis espaciales complejos combinando colecciones (restaurants y neighborhoods), utilizando el operador geoespacial $geoWithin sobre geometrías poligonales, junto con procesamiento iterativo en JavaScript (mongo), ordenamiento y limitación de resultados para identificar el top de barrios con mayor densidad de restaurantes.",
+    enunciado:
+      "1. Restaurantes de Manhattan con calificación 'A' en su evaluación más reciente (grades.0), utilizando pipelines de agregación ($match y $project con $arrayElemAt).\n\n2. Cantidad de restaurantes por barrio (mediante un bucle en mongo cruzando puntos coordenados con polígonos GeoJSON de barrios ($geoWithin) y ordenamiento descendente).\n\n3. Top 5 de barrios con más restaurantes (aplicando la misma lógica geoespacial y de conteo, recortando el arreglo resultante con el método slice(0, 5)).",
+    imagen: imgNote.src,
+    tecnologias: ["MongoDB", "NoSQL", "JavaScript"],
+    demo: "",
+    codigo: "/pdf/Sustentacion_taller_forma_1.js",
+    pdfUrl: "",
+    conceptosAplicados: [
+      "Pipelines de agregación con etapas $match y $project",
+      "Acceso y proyección de elementos en arreglos usando $arrayElemAt",
+      "Consultas geoespaciales con el operador $geoWithin y objetos geométricos $geometry",
+      "Procesamiento iterativo de cursores mediante .toArray() y bucles en mongosh",
+      "Conteo de documentos condicionales con countDocuments",
+      "Ordenamiento de resultados en JavaScript (.sort() y .slice())"
     ],
     categoria: "NoSQL",
   }
