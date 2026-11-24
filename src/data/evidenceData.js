@@ -1019,6 +1019,37 @@ conceptosAplicados: [
       "Ordenamiento de resultados en JavaScript (.sort() y .slice())"
     ],
     categoria: "NoSQL",
+  },
+
+  {
+    titulo: "SoundPass - Proyecto Final de Bases de Datos 2",
+    tema: "Plataforma web de conciertos con PostgreSQL (relacional), MongoDB (no relacional), máquinas virtuales Linux y gestión del proyecto con Scrum",
+    descripcion:
+      "Proyecto final en equipo (David y Mariana) de una plataforma para vender entradas de conciertos. Usa PostgreSQL para lo que no puede fallar (compras y cupos) y MongoDB para lo que cambia de forma (reseñas y perfiles), todo desplegado en tres máquinas virtuales Debian.",
+    descripcionLarga:
+      "SoundPass es una plataforma web que ayuda a un organizador de conciertos a vender entradas y saber cuántas quedan, quién las compró y quién asistirá, incluso cuando cientos de personas compran al mismo tiempo. La parte transaccional (usuarios, eventos, escenarios, tipos de entrada, órdenes y entradas) está en PostgreSQL, con diez tablas normalizadas hasta 3FN, procedimientos almacenados, funciones, triggers, manejo de excepciones y control de transacciones. Así, una compra se guarda completa o no se guarda, y no se vende más de lo que hay. La parte flexible (reseñas, perfiles de artista, detalle de evento y logs) está en MongoDB, aplicando consultas, agregaciones y el patrón Bucket. Todo corre en tres máquinas virtuales Debian 12 (una para la aplicación, una para PostgreSQL y una para MongoDB) con seguridad por capas. La aplicación tiene un backend en Spring Boot y un frontend en React. El proyecto se gestionó con Scrum y Jira. Los entregables del curso se realizaron completos.",
+    enunciado:
+      "1. Base de datos relacional: mínimo 8 entidades, relaciones 1:1, 1:N y N:M, normalización hasta 3FN, procedimientos almacenados, funciones, triggers, manejo de excepciones y control de transacciones (COMMIT y ROLLBACK).\n\n2. MongoDB: diseño documental, operaciones CRUD, consultas complejas, agregaciones y justificación de por qué esos datos van en NoSQL.\n\n3. Virtualización: implementación en máquinas virtuales Linux/Unix con documentación de instalación y configuración.\n\n4. Aplicación web: conexión a la base relacional y a MongoDB, con demostración de las operaciones principales y uso de procedimientos almacenados.\n\n5. Gestión del proyecto: cronograma (Gantt), riesgos, matriz RACI, requerimientos, metodología y uso de Git, más informe ejecutivo y video de sustentación.",
+    imagen: imgNote.src,
+    tecnologias: ["PostgreSQL", "MongoDB", "Spring Boot", "React", "Docker", "Debian"],
+    demo: "",
+    codigo: "/pdf/Proyecto_BD2_Duran_Herrera.zip", 
+    pdfUrl: "/pdf/Proyecto_Final_Bases_Datos_2.pdf",
+    pdfUrlSolucion: "/pdf/SoundPass — Sustentación de proyecto.pdf",
+    conceptosAplicados: [
+      "Modelo entidad-relación y normalización hasta 3FN",
+      "Procedimientos almacenados, funciones y triggers en PostgreSQL",
+      "Transacciones (COMMIT y ROLLBACK) y manejo de excepciones de negocio",
+      "Control de cupos sin sobreventa con SKIP LOCKED",
+      "Restricción de exclusión para evitar choques de horario",
+      "Índices para acelerar las consultas",
+      "Modelo documental en MongoDB con reseñas, perfiles de artista y detalle de evento",
+      "Patrón Bucket para guardar logs agrupados por hora",
+      "Despliegue en tres máquinas virtuales Debian 12 con Docker y nginx",
+      "Seguridad por capas (SSH con llave, firewall)",
+      "Gestión con Scrum, Jira, Gantt, matriz de riesgos, matriz RACI y Git"
+    ],
+    categoria: "Proyecto",
   }
 
 ];
